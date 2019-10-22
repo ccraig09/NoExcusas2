@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "734413363397",
+    "firebase_url": "https://no-excusas.firebaseio.com",
+    "project_id": "no-excusas",
+    "storage_bucket": "no-excusas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734413363397:android:53a08f52587896912df8ac",
+        "android_client_info": {
+          "package_name": "com.fchw.noexcusas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "734413363397-i39f9ool5a05m5tn8r4o8e41edci2908.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fchw.noexcusas",
+            "certificate_hash": "fce1d17e5dde7f083fc49e6b12e354523620d080"
+          }
+        },
+        {
+          "client_id": "734413363397-2p3pcf87ibhcnli6b4mtnqrbg3ntug9n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4Mt1GvDxyyp5evrih4X4LtCVFYN5Hey4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "734413363397-2p3pcf87ibhcnli6b4mtnqrbg3ntug9n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">No Excusas</string>
+    <string name="forgot_password">Olvidé mi contraseña</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="login_now">Iniciar</string>
+    <string name="password">contraseña</string>
+    <string name="signup">Regístrate</string>
+    <string name="username">Nombre de usuario</string>
+    <string name="hintemail">"correo electrónico "</string>
+    <string name="hintpassword">contraseña</string>
+    <string name="already_have_account">Ya tienes una cuenta?</string>
+    <string name="continue_session">"Continuar Sesión "</string>
+    <string name="sign_out">Finalizar Sesión</string>
+    <string name="send_my_password">Enviar mi contraseña</string>
+    <string name="registered_succesfully">Registro Realizado</string>
+    <string name="advance">Avanzar</string>
+    <string name="welcome">BIENVENIDO!</string>
+    <string name="about_Us">Sobre Nosotros</string>
+    <string name="coach">Entrenadores</string>
+    <string name="contact">Contactar</string>
+    <string name="nutrition">Nutrición</string>
+    <string name="session">Sesión</string>
+    <string name="profile">Perfil</string>
+    <string name="orders">Pedidos</string>
+    <string name="information">Información</string>
+    <string name="chat">Chat</string>
+    <string name="back">Atras</string>
+    <string name="enter_email">" Ingrese su id de correo electrónico registrada"</string>
+    <string name="instructions_sent">" ¡Le hemos enviado instrucciones para restablecer su contraseña!"</string>
+    <string name="error_email">¡Error al enviar el correo electrónico de restablecimiento!</string>
+</resources>

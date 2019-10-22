@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeMenu">
+
+
+
+
+    <ImageView
+        android:id="@+id/ivlogoLong"
+        android:layout_width="417dp"
+        android:layout_height="162dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/no_excusas_long"
+        tools:layout_editor_absoluteY="-2dp" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbmiddle"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="#000000"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:layout_below="@+id/ivlogoLong"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivlogoLong" />
+
+    <Button
+        android:id="@+id/btnSession"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:layout_alignLeft="@+id/tbmiddle"
+        android:layout_alignTop="@+id/tbmiddle"
+        android:layout_alignRight="@+id/tbmiddle"
+        android:layout_alignBottom="@+id/tbmiddle"
+        android:layout_marginTop="-5dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="-5dp"
+        android:gravity="center"
+        android:text="@string/session"
+        android:textColor="#ffffff"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="501dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="-7dp"
+        android:layout_below="@+id/tbmiddle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/homepage_green" >
+
+              <FrameLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/btnProfile"
+            style="?android:attr/borderlessButtonStyle"
+            android:contentDescription="@string/profile"
+            android:layout_width="138dp"
+            android:layout_height="162dp"
+            android:padding="20dp"
+
+            android:backgroundTint="#00FFFFFF"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/profile_icon" />
+
+
+          <ImageButton
+            android:id="@+id/btnOrder"
+              android:padding="20dp"
+              style="?android:attr/borderlessButtonStyle"
+            android:contentDescription="@string/orders"
+            android:layout_width="138dp"
+            android:layout_height="162dp"
+            android:backgroundTint="#00FFFFFF"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/pancake"
+            android:layout_gravity="top|end"/>
+
+
+
+        <ImageButton
+            android:id="@+id/btnNutrition"
+            style="?android:attr/borderlessButtonStyle"
+            android:contentDescription="@string/nutrition"
+            android:layout_width="138dp"
+            android:layout_height="162dp"
+            android:padding="20dp"
+
+            android:backgroundTint="#00FFFFFF"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/nutrition_logo"
+            android:layout_gravity="start|center"/>
+
+                  <ImageButton
+                      android:id="@+id/btnContact"
+                      style="?android:attr/borderlessButtonStyle"
+                      android:layout_width="138dp"
+                      android:layout_height="162dp"
+                      android:padding="20dp"
+                      android:layout_gravity="end|center"
+                      android:backgroundTint="#00FFFFFF"
+                      android:contentDescription="@string/contact"
+                      android:scaleType="centerInside"
+                      app:srcCompat="@drawable/whiteboard" />
+
+                  <ImageButton
+            android:id="@+id/btnCoach"
+            style="?android:attr/borderlessButtonStyle"
+            android:contentDescription="@string/coach"
+            android:layout_width="138dp"
+            android:layout_height="162dp"
+            android:backgroundTint="#00FFFFFF"
+            android:scaleType="centerInside"
+                      android:padding="20dp"
+
+                      app:srcCompat="@drawable/coach"
+            android:layout_gravity="start|bottom"
+            android:layout_marginBottom="30dp"/>
+
+
+        <ImageButton
+            android:id="@+id/btnAboutUs"
+            style="?android:attr/borderlessButtonStyle"
+            android:contentDescription="@string/information"
+            android:layout_width="138dp"
+            android:layout_height="162dp"
+            android:backgroundTint="#00FFFFFF"
+            android:padding="20dp"
+
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/about_us_424024"
+            android:layout_gravity="end|bottom"
+            android:layout_marginBottom="30dp" />
+
+
+                /*
+                  TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="@string/profile"
+                      android:textColor="#ffffffff"
+                      android:textSize="34sp"
+                      android:textStyle="bold" />
+
+                  TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="@string/orders"
+                      android:layout_gravity="end|top"
+                      android:textColor="#ffffffff"
+                      android:textSize="34sp"
+                      android:textStyle="bold" />
+
+                  TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_gravity="start|center"
+                      android:text="@string/nutrition"
+                      android:textColor="#ffffffff"
+                      android:textSize="34sp"
+                      android:textStyle="bold" />
+
+                  TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="@string/coach"
+                      android:textColor="#ffffffff"
+                      android:textSize="30sp"
+                      android:layout_gravity="start|bottom"
+                      android:textStyle="bold" />
+
+                  TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="@string/information"
+                      android:textColor="#ffffffff"
+                      android:textSize="30sp"
+                      android:layout_gravity="end|bottom"
+                      android:textStyle="bold" />  */
+
+
+              </FrameLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
+
+
