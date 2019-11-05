@@ -31,6 +31,10 @@
     <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
     <string name="nav_header_desc" translatable="false">Navigation header</string>
     <string name="action_settings" translatable="false">Settings</string>
+    <string name="name">Name</string>
+    <string name="age">Age</string>
+    <string name="sex">Sex</string>
+    <string name="register">Registration</string>
 
 
     <string name="enter_email">Enter your registered email id</string>
@@ -47,7 +51,6 @@
 
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
-
 
 
 </resources>

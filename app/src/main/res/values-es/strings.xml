@@ -29,4 +29,8 @@
     <string name="enter_email">" Ingrese su id de correo electrónico registrada"</string>
     <string name="instructions_sent">" ¡Le hemos enviado instrucciones para restablecer su contraseña!"</string>
     <string name="error_email">¡Error al enviar el correo electrónico de restablecimiento!</string>
+    <string name="name">Nombre</string>
+    <string name="sex">Sexo</string>
+    <string name="age">Edad</string>
+    <string name="register">Inscripción</string>
 </resources>
