@@ -14,16 +14,28 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.facebook.FacebookSdk.getApplicationContext;
+
 public class UserProfile extends Fragment {
     private EditText mChildValueEditText,
             muserName, muserAge, muserSex;
+    FirebaseAuth mAuth;
+    FirebaseAuth.AuthStateListener firebaseAuthListener;
+    Button btSave;
+
 
     private Button mAddButton, mRemoveButton;
     private TextView mchildValueTextView;
@@ -32,57 +44,99 @@ public class UserProfile extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View v = inflater.inflate(R.layout.activity_user_profile,container, false);
+        final View v = inflater.inflate(R.layout.activity_user_profile, container, false);
 
 
-
-        final EditText mChildValueEditText =  v.findViewById(R.id.childValueEditText);
-         mAddButton =  v.findViewById(R.id.addButton);
-         mRemoveButton =  v.findViewById(R.id.removeButton);
-         mchildValueTextView =  v.findViewById(R.id.childValueTextView);
-         muserAge = v.findViewById(R.id.userAge);
-         muserName = v.findViewById(R.id.userName);
-         muserSex = v.findViewById(R.id.userSex);
-
-
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference mRef = database.getReference("simCoder");
-
-        mAddButton.setOnClickListener(new View.OnClickListener() {
+        final EditText mChildValueEditText = v.findViewById(R.id.childValueEditText);
+        mAddButton = v.findViewById(R.id.addButton);
+        mRemoveButton = v.findViewById(R.id.removeButton);
+        mchildValueTextView = v.findViewById(R.id.childValueTextView);
+        muserAge = v.findViewById(R.id.userAge);
+        muserName = v.findViewById(R.id.userName);
+        muserSex = v.findViewById(R.id.userSex);
+        btSave = v.findViewById(R.id.button_save);
+        mAuth = FirebaseAuth.getInstance();
+        firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
-            public void onClick(View v) {
-                String childValue = mChildValueEditText.getText().toString();
-                mRef.setValue(childValue);
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                final DatabaseReference mRef = database.getReference("simCoder");
+
+                mAddButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String childValue = mChildValueEditText.getText().toString();
+                        mRef.setValue(childValue);
+
+                    }
+                });
+                mRemoveButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mRef.removeValue();
+
+                    }
+                });
+
+                mRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        String childValue = String.valueOf(dataSnapshot.getValue());
+                        mchildValueTextView.setText(childValue);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+                btSave.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String user_id = mAuth.getCurrentUser().getUid();
+                        DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
+
+                        String name = muserName.getText().toString();
+                        String age = muserAge.getText().toString();
+                        String sex = muserSex.getText().toString();
+                        Map newPost = new HashMap();
+                        newPost.put("name", name);
+                        newPost.put("age", age);
+                        newPost.put("sex", sex);
+
+
+                        current_user_db.setValue(newPost);
+
+                         Toast.makeText(getApplicationContext(),getString(R.string.info_updated), Toast.LENGTH_LONG).show();
+
+                    }
+                });
+
+
+
 
             }
-        });
-        mRemoveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mRef.removeValue();
-
-            }
-        });
-
-        mRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String childValue = String.valueOf(dataSnapshot.getValue());
-                mchildValueTextView.setText(childValue);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
 
 
-
-
-
+        };
 
         return v;
+
+    }@Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(firebaseAuthListener);
+
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mAuth.removeAuthStateListener(firebaseAuthListener);
     }
 
 }
+

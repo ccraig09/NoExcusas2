@@ -52,10 +52,10 @@ public class LoginActivity extends AppCompatActivity {
         userLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String email = userEmail.getText().toString();
+                String password = userPass.getText().toString();
                 progressBar.setVisibility(View.VISIBLE);
-                firebaseAuth.signInWithEmailAndPassword(userEmail.getText().toString(),
-                        userPass.getText().toString())
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                firebaseAuth.signInWithEmailAndPassword(email, password) .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressBar.setVisibility(View.GONE);
@@ -63,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
                                 if(task.isSuccessful()){
                                     startActivity(new Intent(LoginActivity.this, ProfileActivity.class));
                                 }else{
-                                    Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show ();
+                                    Toast.makeText(LoginActivity.this, getString(R.string.error), Toast.LENGTH_LONG).show ();
                                 }
                             }
                         });

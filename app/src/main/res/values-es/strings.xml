@@ -33,4 +33,6 @@
     <string name="sex">Sexo</string>
     <string name="age">Edad</string>
     <string name="register">Inscripción</string>
+    <string name="error">Error, revise los datos e intente de nuevo</string>
+    <string name="info_updated">Datos actualizados</string>
 </resources>

@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
     String TAG = "MainActivity";
     FirebaseAuth mAuth;
-    Button signup;
+    Button signup1;
     Button forgotPassword;
     EditText email;
     CheckBox remember;
@@ -108,42 +108,26 @@ public class MainActivity extends AppCompatActivity {
       //for login firebase
         progressBar = findViewById(R.id.progressBar);
         login = findViewById(R.id.btnLogin);
-        signup = findViewById(R.id.btnSignup);
+        signup1 = findViewById(R.id.btnSignup);
         forgotPassword = findViewById(R.id.btnForgotPassword);
         email = findViewById(R.id.etEmail);
         password = findViewById(R.id.etPassword);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        signup.setOnClickListener(new View.OnClickListener() {
+        signup1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        progressBar.setVisibility(View.VISIBLE);
-                        firebaseAuth.createUserWithEmailAndPassword(email.getText().toString(),
-                                password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-
-                            @Override
-                                    public void onComplete(@NonNull Task<AuthResult> task) {
-                                progressBar.setVisibility(View.GONE);
-
-
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(MainActivity.this, "Registered successfully", Toast.LENGTH_LONG).show();
-                                    email.setText("");
-                                    password.setText("");
-                                } else {
-                                    Toast.makeText(MainActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(MainActivity.this, RegisterActivity.class));
                                 }
 
-            }
-        });
+            });
 
 
 
 
-        }
 
-    });
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

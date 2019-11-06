@@ -57,7 +57,7 @@
 
 
 
-            <EditText
+           <!-- <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/childValueEditText"/>
@@ -78,17 +78,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/childValueTextView"/>
+                android:id="@+id/childValueTextView"/> -->
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/name"
+                android:inputType="textPersonName"
                 android:id="@+id/userName"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:hint="@string/age"
                 android:id="@+id/userAge"/>
 
