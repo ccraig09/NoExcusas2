@@ -37,6 +37,7 @@
     <string name="register">Registration</string>
     <string name="error">Error, please review information and try again</string>
     <string name="info_updated">Changes updated</string>
+    <string name="update_info">Edit Profile</string>
 
 
     <string name="enter_email">Enter your registered email id</string>

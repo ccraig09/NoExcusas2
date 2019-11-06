@@ -1,41 +1,34 @@
 package com.fchw.noexcusas;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
-public class UserProfile extends Fragment {
+public class UserProfileEdit extends Fragment {
     private EditText mChildValueEditText,
             muserName, muserAge, muserSex;
     FirebaseAuth mAuth;
     FirebaseAuth.AuthStateListener firebaseAuthListener;
-    Button btEdit;
+    Button btSave;
 
 
     private Button mAddButton, mRemoveButton;
@@ -52,12 +45,12 @@ public class UserProfile extends Fragment {
         mAddButton = v.findViewById(R.id.addButton);
         mRemoveButton = v.findViewById(R.id.removeButton);
         mchildValueTextView = v.findViewById(R.id.childValueTextView);*/
-       // muserAge = v.findViewById(R.id.userAge);
-      //  muserName = v.findViewById(R.id.userName);
-      //  muserSex = v.findViewById(R.id.userSex);
-        btEdit = v.findViewById(R.id.button_edit);
-      //  mAuth = FirebaseAuth.getInstance();
-      /*  firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
+        muserAge = v.findViewById(R.id.userAge);
+        muserName = v.findViewById(R.id.userName);
+        muserSex = v.findViewById(R.id.userSex);
+        btSave = v.findViewById(R.id.button_save);
+        mAuth = FirebaseAuth.getInstance();
+        firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -94,21 +87,34 @@ public class UserProfile extends Fragment {
 
                     }
                 });*/
-                btEdit.setOnClickListener(new View.OnClickListener() {
+                btSave.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(v.getContext(), UserProfileEdit.class);
-                        startActivity(intent);
+                        String user_id = mAuth.getCurrentUser().getUid();
+                        DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
 
+                        String name = muserName.getText().toString();
+                        String age = muserAge.getText().toString();
+                        String sex = muserSex.getText().toString();
+                        Map newPost = new HashMap();
+                        newPost.put("name", name);
+                        newPost.put("age", age);
+                        newPost.put("sex", sex);
+
+
+                        current_user_db.setValue(newPost);
+
+                         Toast.makeText(getApplicationContext(),getString(R.string.info_updated), Toast.LENGTH_LONG).show();
 
                     }
                 });
-                return v;
+
+
+
+
             }
-        }
 
 
-/*
         };
 
         return v;
@@ -127,4 +133,4 @@ public class UserProfile extends Fragment {
     }
 
 }
-*/
+

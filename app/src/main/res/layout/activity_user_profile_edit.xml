@@ -114,13 +114,13 @@
                 android:layout_height="wrap_content"/>
 
             <Button
-                android:id="@+id/button_edit"
+                android:id="@+id/button_save"
                 android:layout_marginTop="15dp"
                 android:textColor="@android:color/white"
                 android:background="?colorPrimary"
                 android:textAllCaps="false"
                 android:layout_gravity="center_horizontal"
-                android:text="@string/update_info"
+                android:text="Save Changes"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"/>
 
