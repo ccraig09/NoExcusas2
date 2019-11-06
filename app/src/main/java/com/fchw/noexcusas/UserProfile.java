@@ -47,10 +47,10 @@ public class UserProfile extends Fragment {
         final View v = inflater.inflate(R.layout.activity_user_profile, container, false);
 
 
-        final EditText mChildValueEditText = v.findViewById(R.id.childValueEditText);
+        /*final EditText mChildValueEditText = v.findViewById(R.id.childValueEditText);
         mAddButton = v.findViewById(R.id.addButton);
         mRemoveButton = v.findViewById(R.id.removeButton);
-        mchildValueTextView = v.findViewById(R.id.childValueTextView);
+        mchildValueTextView = v.findViewById(R.id.childValueTextView);*/
         muserAge = v.findViewById(R.id.userAge);
         muserName = v.findViewById(R.id.userName);
         muserSex = v.findViewById(R.id.userSex);

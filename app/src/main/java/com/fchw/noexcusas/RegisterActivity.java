@@ -77,10 +77,10 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
 
-        final EditText mChildValueEditText = findViewById(R.id.childValueEditText);
+       /*final EditText mChildValueEditText = findViewById(R.id.childValueEditText);
         mAddButton = findViewById(R.id.addButton);
         mRemoveButton = findViewById(R.id.removeButton);
-        mchildValueTextView = findViewById(R.id.childValueTextView);
+        mchildValueTextView = findViewById(R.id.childValueTextView);*/
         muserAge = findViewById(R.id.userAge);
         muserName = findViewById(R.id.userName);
         muserSex = findViewById(R.id.userSex);
