@@ -38,7 +38,7 @@ public class UserProfileEdit extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View v = inflater.inflate(R.layout.activity_user_profile, container, false);
+        final View v = inflater.inflate(R.layout.activity_user_profile_edit, container, false);
 
 
         /*final EditText mChildValueEditText = v.findViewById(R.id.childValueEditText);
@@ -105,6 +105,10 @@ public class UserProfileEdit extends Fragment {
                         current_user_db.setValue(newPost);
 
                          Toast.makeText(getApplicationContext(),getString(R.string.info_updated), Toast.LENGTH_LONG).show();
+                        getFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.fragment_container, new UserProfile())
+                                .commit();
 
                     }
                 });

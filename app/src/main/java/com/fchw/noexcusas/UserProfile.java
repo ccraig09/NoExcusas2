@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -52,11 +54,11 @@ public class UserProfile extends Fragment {
         mAddButton = v.findViewById(R.id.addButton);
         mRemoveButton = v.findViewById(R.id.removeButton);
         mchildValueTextView = v.findViewById(R.id.childValueTextView);*/
-       // muserAge = v.findViewById(R.id.userAge);
-      //  muserName = v.findViewById(R.id.userName);
-      //  muserSex = v.findViewById(R.id.userSex);
+        // muserAge = v.findViewById(R.id.userAge);
+        //  muserName = v.findViewById(R.id.userName);
+        //  muserSex = v.findViewById(R.id.userSex);
         btEdit = v.findViewById(R.id.button_edit);
-      //  mAuth = FirebaseAuth.getInstance();
+        //  mAuth = FirebaseAuth.getInstance();
       /*  firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -94,18 +96,36 @@ public class UserProfile extends Fragment {
 
                     }
                 });*/
+
+        mAuth = FirebaseAuth.getInstance();
+        firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                final DatabaseReference mRef = database.getReference("simCoder");
                 btEdit.setOnClickListener(new View.OnClickListener() {
+
+
+
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(v.getContext(), UserProfileEdit.class);
-                        startActivity(intent);
+                        getFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.fragment_container, new UserProfileEdit())
+                                .commit();
 
 
                     }
                 });
-                return v;
             }
-        }
+        };
+        return v;
+
+    }
+}
 
 
 /*

@@ -36,4 +36,5 @@
     <string name="error">Error, revise los datos e intente de nuevo</string>
     <string name="info_updated">Datos actualizados</string>
     <string name="update_info">Actualizar Datos</string>
+    <string name="save_changes">Guardar Cambios</string>
 </resources>
