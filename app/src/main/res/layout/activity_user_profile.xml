@@ -72,13 +72,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/removeButton"
-                android:text="remove"/>
+                android:text="remove"/> -->
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/childValueTextView"/> -->
+                android:id="@+id/childValueTextView"/>
 
             <EditText
                 android:layout_width="match_parent"

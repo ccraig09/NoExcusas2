@@ -19,6 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.client.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -38,10 +39,11 @@ public class UserProfile extends Fragment {
     FirebaseAuth mAuth;
     FirebaseAuth.AuthStateListener firebaseAuthListener;
     Button btEdit;
+    private Firebase mRef;
 
 
     private Button mAddButton, mRemoveButton;
-    private TextView mchildValueTextView;
+    private TextView mChildValueTextView;
 
 
     @Nullable
@@ -49,16 +51,79 @@ public class UserProfile extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View v = inflater.inflate(R.layout.activity_user_profile, container, false);
 
+        btEdit = v.findViewById(R.id.button_edit);
+        mChildValueTextView = v.findViewById(R.id.childValueTextView);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference mRef = database.getReference("Users");
 
-        /*final EditText mChildValueEditText = v.findViewById(R.id.childValueEditText);
+        mRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String childValue = String.valueOf(dataSnapshot.getValue());
+                mChildValueTextView.setText(childValue);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+            });
+
+
+                btEdit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.fragment_container, new UserProfileEdit())
+                                .commit();
+
+
+                    }
+                });
+
+
+
+        return v;
+    }
+
+}
+
+
+
+
+/*
+        };
+
+        return v;
+
+    }@Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(firebaseAuthListener);
+
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mAuth.removeAuthStateListener(firebaseAuthListener);
+    }
+
+}
+*/
+
+
+//---------------------------------------------------------------------------
+
+/*final EditText mChildValueEditText = v.findViewById(R.id.childValueEditText);
         mAddButton = v.findViewById(R.id.addButton);
         mRemoveButton = v.findViewById(R.id.removeButton);
         mchildValueTextView = v.findViewById(R.id.childValueTextView);*/
-        // muserAge = v.findViewById(R.id.userAge);
-        //  muserName = v.findViewById(R.id.userName);
-        //  muserSex = v.findViewById(R.id.userSex);
-        btEdit = v.findViewById(R.id.button_edit);
-        //  mAuth = FirebaseAuth.getInstance();
+// muserAge = v.findViewById(R.id.userAge);
+//  muserName = v.findViewById(R.id.userName);
+//  muserSex = v.findViewById(R.id.userSex);
+
+//  mAuth = FirebaseAuth.getInstance();
       /*  firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -97,54 +162,14 @@ public class UserProfile extends Fragment {
                     }
                 });*/
 
-        mAuth = FirebaseAuth.getInstance();
-        firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//---------------------------------------------------------------------------
+
+              /*  mAuth = FirebaseAuth.getInstance();
+                firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
+@Override
+public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                final DatabaseReference mRef = database.getReference("simCoder");
-                btEdit.setOnClickListener(new View.OnClickListener() {
-
-
-
-                    @Override
-                    public void onClick(View v) {
-                        getFragmentManager()
-                                .beginTransaction()
-                                .replace(R.id.fragment_container, new UserProfileEdit())
-                                .commit();
-
-
-                    }
-                });
-            }
-        };
-        return v;
-
-    }
-}
-
-
-/*
-        };
-
-        return v;
-
-    }@Override
-    public void onStart() {
-        super.onStart();
-        mAuth.addAuthStateListener(firebaseAuthListener);
-
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        mAuth.removeAuthStateListener(firebaseAuthListener);
-    }
-
-}
-*/
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+final DatabaseReference mRef = database.getReference("Users");*/
