@@ -80,7 +80,17 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/childValueTextView"/>
 
-            <EditText
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:id="@+id/childValueTextView2"/>
+
+          <!--  <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/name"
@@ -98,20 +108,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/sex"
-                android:id="@+id/userSex"/>
+                android:id="@+id/userSex"/>-->
 
 
 
 
 
 
-            <ProgressBar
-                android:id="@+id/progressbar"
-                android:visibility="invisible"
-                android:layout_margin="10dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+
 
             <Button
                 android:id="@+id/button_edit"
@@ -121,6 +125,17 @@
                 android:textAllCaps="false"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/update_info"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/button_refresh"
+                android:layout_marginTop="15dp"
+                android:textColor="@android:color/white"
+                android:background="?colorPrimary"
+                android:textAllCaps="false"
+                android:layout_gravity="center_horizontal"
+                android:text="refresh"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"/>
 

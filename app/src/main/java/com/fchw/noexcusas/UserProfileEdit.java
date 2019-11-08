@@ -57,7 +57,7 @@ public class UserProfileEdit extends Fragment {
 
 
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                final DatabaseReference mRef = database.getReference("simCoder");
+                final DatabaseReference mRef = database.getReference("Users");
 
                /* mAddButton.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -100,6 +100,7 @@ public class UserProfileEdit extends Fragment {
                         newPost.put("name", name);
                         newPost.put("age", age);
                         newPost.put("sex", sex);
+
 
 
                         current_user_db.setValue(newPost);

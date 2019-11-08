@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RegisterActivity"/>
+        <activity android:name=".Countdown" />
+        <activity android:name=".RegisterActivity" />
         <activity
             android:name=".drawer_home"
             android:label="@string/title_activity_drawer_home"

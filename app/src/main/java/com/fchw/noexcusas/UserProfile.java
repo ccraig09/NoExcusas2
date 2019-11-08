@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +39,8 @@ public class UserProfile extends Fragment {
             muserName, muserAge, muserSex;
     FirebaseAuth mAuth;
     FirebaseAuth.AuthStateListener firebaseAuthListener;
-    Button btEdit;
+    Button btEdit, btRefresh;
+
     private Firebase mRef;
 
 
@@ -52,21 +54,30 @@ public class UserProfile extends Fragment {
         final View v = inflater.inflate(R.layout.activity_user_profile, container, false);
 
         btEdit = v.findViewById(R.id.button_edit);
+        btRefresh = v.findViewById(R.id.button_refresh);
         mChildValueTextView = v.findViewById(R.id.childValueTextView);
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference mRef = database.getReference("Users");
-
-        mRef.addValueEventListener(new ValueEventListener() {
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference uidRef = rootRef.child("Users").child(uid);
+        ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String age = dataSnapshot.child("age").getValue(String.class);
+                String name = dataSnapshot.child("name").getValue(String.class);
+                String sex = dataSnapshot.child("sex").getValue(String.class);
+                Log.d("TAG", name + ", " + sex + ", " + age);
                 String childValue = String.valueOf(dataSnapshot.getValue());
                 mChildValueTextView.setText(childValue);
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.d("TAG", databaseError.getMessage()); //Don't ignore errors!
             }
-            });
+        };
+        uidRef.addListenerForSingleValueEvent(valueEventListener);
+
 
 
                 btEdit.setOnClickListener(new View.OnClickListener() {
@@ -80,13 +91,26 @@ public class UserProfile extends Fragment {
 
                     }
                 });
+        btRefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, new UserProfile())
+                        .commit();
 
 
-
+            }
+        });
         return v;
+
+
     }
 
-}
+        }
+
+
+
 
 
 

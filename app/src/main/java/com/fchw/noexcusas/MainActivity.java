@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
     String TAG = "MainActivity";
     FirebaseAuth mAuth;
-    Button signup1;
+    Button signup1, count;
     Button forgotPassword;
     EditText email;
     CheckBox remember;
@@ -108,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
       //for login firebase
         progressBar = findViewById(R.id.progressBar);
         login = findViewById(R.id.btnLogin);
+        count = findViewById(R.id.btnCount);
         signup1 = findViewById(R.id.btnSignup);
         forgotPassword = findViewById(R.id.btnForgotPassword);
         email = findViewById(R.id.etEmail);
@@ -150,6 +152,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, ForgotPasswordActivity.class));
+            }
+        });
+
+        count.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Countdown.class));
             }
         });
 
