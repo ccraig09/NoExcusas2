@@ -39,7 +39,8 @@ public class UserProfile extends Fragment {
             muserName, muserAge, muserSex;
     FirebaseAuth mAuth;
     FirebaseAuth.AuthStateListener firebaseAuthListener;
-    Button btEdit, btRefresh;
+    Button btEdit, btRefresh, btnBack;
+
 
     private Firebase mRef;
 
@@ -55,7 +56,10 @@ public class UserProfile extends Fragment {
 
         btEdit = v.findViewById(R.id.button_edit);
         btRefresh = v.findViewById(R.id.button_refresh);
+        btnBack = v.findViewById(R.id.btn_back);
         mChildValueTextView = v.findViewById(R.id.childValueTextView);
+
+
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
         DatabaseReference uidRef = rootRef.child("Users").child(uid);
@@ -92,6 +96,18 @@ public class UserProfile extends Fragment {
                     }
                 });
         btRefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, new UserProfile())
+                        .commit();
+
+
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getFragmentManager()

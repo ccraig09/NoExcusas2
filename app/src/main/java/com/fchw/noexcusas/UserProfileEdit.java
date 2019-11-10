@@ -28,7 +28,7 @@ public class UserProfileEdit extends Fragment {
             muserName, muserAge, muserSex;
     FirebaseAuth mAuth;
     FirebaseAuth.AuthStateListener firebaseAuthListener;
-    Button btSave;
+    Button btSave, btnBack;
 
 
     private Button mAddButton, mRemoveButton;
@@ -48,8 +48,16 @@ public class UserProfileEdit extends Fragment {
         muserAge = v.findViewById(R.id.userAge);
         muserName = v.findViewById(R.id.userName);
         muserSex = v.findViewById(R.id.userSex);
+        btnBack = v.findViewById(R.id.btn_back);
         btSave = v.findViewById(R.id.button_save);
         mAuth = FirebaseAuth.getInstance();
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().finish();
+            }
+        });
         firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {

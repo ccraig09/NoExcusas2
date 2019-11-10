@@ -2,6 +2,13 @@ package com.fchw.noexcusas;
 
 import android.os.Bundle;
 
+import com.fchw.noexcusas.AboutUsActivity;
+import com.fchw.noexcusas.CoachesActivity;
+import com.fchw.noexcusas.ContactActivity;
+import com.fchw.noexcusas.NutritionActivity;
+import com.fchw.noexcusas.OrdersActivity;
+import com.fchw.noexcusas.R;
+import com.fchw.noexcusas.UserProfile;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -53,6 +60,10 @@ public class drawer_home extends AppCompatActivity implements NavigationView.OnN
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
+            case R.id.nav_homeMain:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new androidx.fragment.app.Fragment()).commit();
+                break;
             case R.id.nav_profile:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new UserProfile()).commit();

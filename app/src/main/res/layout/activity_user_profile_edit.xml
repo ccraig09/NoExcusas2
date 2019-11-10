@@ -115,7 +115,18 @@
                 android:background="?colorPrimary"
                 android:textAllCaps="false"
                 android:layout_gravity="center_horizontal"
-                android:text="Save Changes"
+                android:text="@string/save_changes"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/btn_back"
+                android:layout_marginTop="15dp"
+                android:textColor="@android:color/white"
+                android:background="?colorPrimary"
+                android:textAllCaps="false"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/back"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"/>
 

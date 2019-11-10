@@ -39,6 +39,8 @@
     <string name="info_updated">Changes updated</string>
     <string name="update_info">Edit Profile</string>
     <string name="save_changes">Save Changes</string>
+    <string name="refresh">Refresh</string>
+    <string name="home">Home</string>
 
 
     <string name="enter_email">Enter your registered email id</string>
