@@ -28,7 +28,7 @@ public class UserProfileEdit extends Fragment {
             muserName, muserAge, muserSex;
     FirebaseAuth mAuth;
     FirebaseAuth.AuthStateListener firebaseAuthListener;
-    Button btSave, btnBack;
+    Button btSaveName,btSave, btnBack;
 
 
     private Button mAddButton, mRemoveButton;
@@ -50,14 +50,10 @@ public class UserProfileEdit extends Fragment {
         muserSex = v.findViewById(R.id.userSex);
         btnBack = v.findViewById(R.id.btn_back);
         btSave = v.findViewById(R.id.button_save);
+        //btSaveName = v.findViewById(R.id.button_save_name);
         mAuth = FirebaseAuth.getInstance();
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().finish();
-            }
-        });
+
         firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -100,28 +96,57 @@ public class UserProfileEdit extends Fragment {
                     public void onClick(View v) {
                         String user_id = mAuth.getCurrentUser().getUid();
                         DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
-
                         String name = muserName.getText().toString();
                         String age = muserAge.getText().toString();
                         String sex = muserSex.getText().toString();
                         Map newPost = new HashMap();
-                        newPost.put("name", name);
-                        newPost.put("age", age);
-                        newPost.put("sex", sex);
-
+                        newPost.put("Name", name);
+                        newPost.put("Age", age);
+                        newPost.put("Sex", sex);
 
 
                         current_user_db.setValue(newPost);
 
-                         Toast.makeText(getApplicationContext(),getString(R.string.info_updated), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), getString(R.string.info_updated), Toast.LENGTH_LONG).show();
                         getFragmentManager()
                                 .beginTransaction()
                                 .replace(R.id.fragment_container, new UserProfile())
                                 .commit();
-
                     }
                 });
 
+
+                /* Start of code for name only change
+                btSaveName.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String user_id = mAuth.getCurrentUser().getUid();
+                        DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
+                        String name = muserName.getText().toString();
+                        Map newPost = new HashMap();
+                        newPost.put("Name", name);
+
+                        current_user_db.setValue(newPost);
+
+                        Toast.makeText(getApplicationContext(),getString(R.string.info_updated), Toast.LENGTH_LONG).show();
+
+
+                    }
+                });
+*/
+
+
+
+                btnBack.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(),getString(R.string.no_changes), Toast.LENGTH_LONG).show();
+                        getFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.fragment_container, new UserProfile())
+                                .commit();
+                    }
+                });
 
 
 

@@ -66,10 +66,10 @@ public class UserProfile extends Fragment {
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String age = dataSnapshot.child("age").getValue(String.class);
                 String name = dataSnapshot.child("name").getValue(String.class);
+                String age = dataSnapshot.child("age").getValue(String.class);
                 String sex = dataSnapshot.child("sex").getValue(String.class);
-                Log.d("TAG", name + ", " + sex + ", " + age);
+                Log.d("TAG", name + ", \n" + sex + ", \n" + age);
                 String childValue = String.valueOf(dataSnapshot.getValue());
                 mChildValueTextView.setText(childValue);
 
@@ -96,18 +96,6 @@ public class UserProfile extends Fragment {
                     }
                 });
         btRefresh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.fragment_container, new UserProfile())
-                        .commit();
-
-
-            }
-        });
-
-        btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getFragmentManager()

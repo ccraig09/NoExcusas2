@@ -119,6 +119,17 @@
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"/>
 
+           <!-- <Button
+                android:id="@+id/button_save_name"
+                android:layout_marginTop="15dp"
+                android:textColor="@android:color/white"
+                android:background="?colorPrimary"
+                android:textAllCaps="false"
+                android:layout_gravity="center_horizontal"
+                android:text="test change name"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"/> -->
+
             <Button
                 android:id="@+id/btn_back"
                 android:layout_marginTop="15dp"

@@ -39,4 +39,5 @@
     <string name="save_changes">Guardar Cambios</string>
     <string name="refresh">Refrescar</string>
     <string name="home">Inicio</string>
+    <string name="no_changes">No cambios fuersrealizado</string>
 </resources>
