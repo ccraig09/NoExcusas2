@@ -42,6 +42,9 @@
     <string name="refresh">Refresh</string>
     <string name="home">Home</string>
     <string name="no_changes">No changes were made</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="password_length_error">Password must be at least 6 letters</string>
 
 
     <string name="enter_email">Enter your registered email id</string>

@@ -52,11 +52,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -216,7 +219,31 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
+
+
                             FirebaseUser user = mAuth.getCurrentUser();
+
+                            //if user is signing in first time then get and show user info from google account
+                            if (task.getResult().getAdditionalUserInfo().isNewUser()){
+                                //Get user email and uid from auth
+                                String email = user.getEmail();
+                                String uid = user.getUid();
+                                //when user is registered store user info in FB realtime database too
+                                //using Hashmap
+                                HashMap<Object, String> hashMap = new HashMap<>();
+                                //put info in hashmap
+                                hashMap.put("email",email);
+                                hashMap.put("uid",uid);
+                                hashMap.put("name","");//add later in edit profile
+                                hashMap.put("phone","");
+                                hashMap.put("image","");
+                                //firebase database instance
+                                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                //path to store user datea named "Users"
+                                DatabaseReference reference = database.getReference("Users");
+                                //put data within hasmap in databse
+                                reference.child(uid).setValue(hashMap);
+                            }
                             // show user email in toast
                             Toast.makeText(MainActivity.this, ""+user.getEmail(), Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(MainActivity.this, ProfileActivity.class));

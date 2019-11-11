@@ -67,62 +67,8 @@
                     android:layout_marginTop="1dp"
                     android:orientation="vertical">
 
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/et_bg"
-                        android:ems="10"
-                        android:hint="@string/name"
-                        android:fontFamily="sans-serif-light"
-                        android:textColor="#ffffff"
-                        android:textColorHint="#ffffff"
-                        android:paddingStart="15dp"
-                        android:inputType="textPersonName"
-                        android:paddingEnd="15dp"
-                        android:textSize="15sp"
-                        android:id="@+id/userName"/>
 
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="20dp"
-                        android:hint="@string/age"
-                        android:background="@drawable/et_bg"
-                        android:ems="10"
-                        android:fontFamily="sans-serif-light"
-                        android:textColor="#ffffff"
-                        android:textColorHint="#ffffff"
-                        android:textSize="15sp"
-                        android:paddingStart="15dp"
-                        android:paddingEnd="15dp"
-                        android:inputType="number"
-                        android:id="@+id/userAge"/>
 
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/et_bg"
-                        android:ems="10"
-                        android:textColor="#ffffff"
-                        android:fontFamily="sans-serif-light"
-                        android:textColorHint="#ffffff"
-                        android:hint="@string/sex"
-                        android:paddingStart="15dp"
-                        android:paddingEnd="15dp"
-                        android:textSize="15sp"
-                        android:id="@+id/userSex"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/username"
-                        android:layout_marginTop="10dp"
-                        android:textAllCaps="true"
-                        android:fontFamily="sans-serif-light"
-                        android:textSize="15sp"
-                        android:textColor="#ffffff" />
 
                     <EditText
                         android:id="@+id/etEmail"
@@ -143,40 +89,33 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/password"
-                        android:textAllCaps="true"
-                        android:fontFamily="sans-serif-light"
-                        android:textSize="15sp"
-                        android:textColor="#ffffff"/>
 
-                    <EditText
-                        android:id="@+id/etPassword"
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="5dp"
-                        android:textSize="15sp"
-                        android:textColor="#ffffff"
-                        android:fontFamily="sans-serif-light"
-                        android:ems="10"
-                        android:hint="@string/hintpassword"
-                        android:paddingStart="15dp"
-                        android:paddingEnd="15dp"
-                        android:background="@drawable/et_bg"
-                        android:inputType="textPassword"
-                        android:textColorHint="#ffffff"/>
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        app:passwordToggleEnabled="true"
+                        android:textColorHint="#ffffff"
+                        android:hint="@string/password">
 
 
+                        <EditText
+                            android:id="@+id/etPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/et_bg"
+                            android:ems="10"
+                            android:fontFamily="sans-serif-light"
+                            android:inputType="textPassword"
+                            android:paddingStart="15dp"
+                            android:paddingEnd="15dp"
+                            android:textColor="#ffffff"
+                            android:textSize="15sp" />
 
-                </LinearLayout>
+
+                    </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 

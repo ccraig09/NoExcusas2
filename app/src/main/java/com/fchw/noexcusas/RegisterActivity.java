@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ import android.widget.Toast;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -64,8 +66,6 @@ public class RegisterActivity extends AppCompatActivity {
         }
     };
 
-    private EditText mChildValueEditText,
-            muserName, muserAge, muserSex;
 
     private Button mAddButton, mRemoveButton;
     private TextView mchildValueTextView;
@@ -81,9 +81,6 @@ public class RegisterActivity extends AppCompatActivity {
         mAddButton = findViewById(R.id.addButton);
         mRemoveButton = findViewById(R.id.removeButton);
         mchildValueTextView = findViewById(R.id.childValueTextView);*/
-        muserAge = findViewById(R.id.userAge);
-        muserName = findViewById(R.id.userName);
-        muserSex = findViewById(R.id.userSex);
         btnBack = findViewById(R.id.btn_back);
 
         // firebase login
@@ -119,31 +116,26 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
-                String email = mEmail.getText().toString();
-                String password = mPassword.getText().toString();
-                mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                String email = mEmail.getText().toString().trim();
+                String password = mPassword.getText().toString().trim();
 
 
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        progressBar.setVisibility(View.GONE);
+                        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                            //set error and focus to email edittext
+                            mEmail.setError(getString(R.string.error));
+                            mEmail.setFocusable(true);
 
+                        } else if (password.length()<6) {
+                            // set error and focus to password edittext
+                            mPassword.setError(getString(R.string.password_length_error));
+                            mPassword.setFocusable(true);
+                        }
+                        else {
+                            registerUser(email, password); //register the user
 
-                        if (!task.isSuccessful()) {
-                            Toast.makeText(RegisterActivity.this, getString(R.string.error), Toast.LENGTH_LONG).show();
-                        } else {
-                            String user_id = mAuth.getCurrentUser().getUid();
-                            DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
-
-                            String name = muserName.getText().toString();
-                            String age = muserAge.getText().toString();
-                            String sex = muserSex.getText().toString();
-                            Map newPost = new HashMap();
-                            newPost.put("name", name);
-                            newPost.put("age", age);
-                            newPost.put("sex", sex);
-
-                            current_user_db.setValue(newPost);
+                            Toast.makeText(RegisterActivity.this, getString(R.string.registered_succesfully),Toast.LENGTH_LONG).show();
 
                         }
 
@@ -152,6 +144,49 @@ public class RegisterActivity extends AppCompatActivity {
 
             }
 
+    private void registerUser(String email, String password) {
+
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, dismiss dialog and start register activity
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            //Get user email and uid from auth
+                            String email = user.getEmail();
+                            String uid = user.getUid();
+                            //when user is registered store user info in FB realtime database too
+                            //using Hashmap
+                            HashMap<Object, String> hashMap = new HashMap<>();
+                            //put info in hashmap
+                            hashMap.put("email",email);
+                            hashMap.put("uid",uid);
+                            hashMap.put("name","");//add later in edit profile
+                            hashMap.put("phone","");
+                            hashMap.put("image","");
+                            //firebase database instance
+                            FirebaseDatabase database = FirebaseDatabase.getInstance();
+                            //path to store user datea named "Users"
+                            DatabaseReference reference = database.getReference("Users");
+                            //put data within hasmap in databse
+                            reference.child(uid).setValue(hashMap);
+
+
+                            startActivity(new Intent(RegisterActivity.this, ProfileActivity.class));
+                            finish();
+
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(RegisterActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(RegisterActivity.this, ""+ e.getMessage(),Toast.LENGTH_SHORT).show();
+            }
         });
     }
 

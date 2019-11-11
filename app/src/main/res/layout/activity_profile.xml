@@ -24,10 +24,10 @@
         android:id="@+id/tvUserEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textColor="#CD9A21"
         android:layout_gravity="center"
-        android:textSize="30sp" />
+        android:textColor="#CD9A21"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
 
     <Button
