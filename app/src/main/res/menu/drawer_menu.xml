@@ -17,6 +17,10 @@
             android:icon="@drawable/ic_orders"
             android:title="@string/orders" />
         <item
+            android:id="@+id/nav_qr"
+            android:icon="@drawable/ic_qr"
+            android:title="QR Code" />
+        <item
             android:id="@+id/nav_nutrition"
             android:icon="@drawable/ic_nutrition"
             android:title="@string/nutrition" />

@@ -24,6 +24,7 @@
         android:id="@+id/tvUserEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="5dp"
         android:layout_gravity="center"
         android:textColor="#CD9A21"
         android:textSize="30sp"
@@ -45,6 +46,24 @@
         android:textColor="#ffffff"
         android:textSize="25sp" />
 
+    <TextView
+        android:id="@+id/qrTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:text="@string/scan_code"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/qrIV"
+        android:layout_marginTop="20dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:src="@drawable/et_bg"/>
 
 
 
@@ -55,23 +74,22 @@
         app:flipOnTouch="true"
         app:flipEnabled="true"
         app:flipDuration="600"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         app:flipFrom="right"
         app:flipType="horizontal"
-        app:autoFlipBack="true"
-        app:autoFlipBackTime="1000"
-        >
+        app:autoFlipBack="false"
+        app:autoFlipBackTime="1000">
 
         <!-- Back Layout Goes Here -->
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="100dp"
             android:src="@drawable/logoflipped"/>
 
         <!-- Front Layout Goes Here -->
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="100dp"
             android:src="@drawable/noexlogo"/>
 
     </com.wajahatkarim3.easyflipview.EasyFlipView>
@@ -88,7 +106,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_gravity="center"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/btn_bg"
         android:fontFamily="sans-serif-medium"
         android:paddingLeft="70dp"

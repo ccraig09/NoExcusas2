@@ -1,14 +1,15 @@
 package com.fchw.noexcusas;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -20,11 +21,8 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
-public class ProfileActivity extends AppCompatActivity {
 
-    TextView userEmail;
-    Button userLogout;
-    Button goToHome;
+public class QRcodeFragment extends Fragment {
     ImageView ivQR;
 
     FirebaseAuth firebaseAuth;
@@ -32,22 +30,23 @@ public class ProfileActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
 
-        userEmail = findViewById(R.id.tvUserEmail);
-        userLogout = findViewById(R.id.btnLogout);
-        goToHome = findViewById(R.id.btnToHome);
-        ivQR = findViewById(R.id.qrIV);
+    public QRcodeFragment() {
+    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        final View view = inflater.inflate(R.layout.fragment_qrcode, container, false);
+
+        ivQR = view.findViewById(R.id.qrIV);
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Users");
 
-        userEmail.setText(firebaseUser.getEmail());
+
         Query query = databaseReference.orderByChild("email").equalTo(firebaseUser.getEmail());
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -68,7 +67,6 @@ public class ProfileActivity extends AppCompatActivity {
 
 
                     }
-
                 }
             }
 
@@ -76,25 +74,11 @@ public class ProfileActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });
-        userLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
-                startActivity(intent);
 
-            }
         });
 
-        goToHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(ProfileActivity.this, drawer_home.class));
-            }
-        });
+        return view;
+
     }
 }

@@ -65,65 +65,6 @@
                     android:layout_marginTop="20dp"
                     android:orientation="vertical">
 
-                    <!--<TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/username"
-                        android:textAllCaps="true"
-                        android:fontFamily="sans-serif-light"
-                        android:textSize="15sp"
-                        android:textColor="#ffffff" />
-
-                    <EditText
-                        android:id="@+id/etEmail"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="5dp"
-                        android:textSize="15sp"
-                        android:textColor="#ffffff"
-                        android:fontFamily="sans-serif-light"
-                        android:ems="10"
-                        android:hint="@string/hintemail"
-                        android:paddingLeft="15dp"
-                        android:paddingStart="15dp"
-                        android:background="@drawable/et_bg"
-                        android:inputType="textEmailAddress"
-                        android:textColorHint="#ffffff"/>
-
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/password"
-                        android:textAllCaps="true"
-                        android:fontFamily="sans-serif-light"
-                        android:textSize="15sp"
-                        android:textColor="#ffffff"/>
-
-                    <EditText
-                        android:id="@+id/etPassword"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="5dp"
-                        android:textSize="15sp"
-                        android:textColor="#ffffff"
-                        android:fontFamily="sans-serif-light"
-                        android:ems="10"
-                        android:hint="@string/hintpassword"
-                        android:paddingLeft="15dp"
-                        android:paddingStart="15dp"
-                        android:background="@drawable/et_bg"
-                        android:inputType="textPassword"
-                        android:textColorHint="#ffffff"/>-->
 
 
 
@@ -133,7 +74,7 @@
 
             <Button
                 android:id="@+id/btnSignup"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_below="@+id/linlay1"
                 android:layout_marginTop="20dp"
@@ -149,7 +90,7 @@
 
             <com.google.android.gms.common.SignInButton
                 android:id="@+id/sign_in_google"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/btnSignup"
@@ -182,50 +123,55 @@
 
         android:id="@+id/rellay2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_alignParentBottom="true"
         android:visibility="gone">
+
+        <TextView
+            android:id="@+id/alreadyHaveAcctTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/already_have_account"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:layout_above="@+id/btnLogin"/>
 
 
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/transparent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="14dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/btn_bg"
+            android:padding="1dp"
+            android:fontFamily="sans-serif"
             android:text="@string/login"
             android:textAllCaps="true"
             android:textColor="#ffffff"
-            android:fontFamily="sans-serif" />
+            android:textSize="17sp" />
 
 
-        <Button
-            android:id="@+id/btnCount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="105dp"
-            android:background="@color/transparent"
-            android:fontFamily="sans-serif"
-            android:text="count"
-            android:textAllCaps="true"
-            android:textColor="#ffffff" />
 
         <Button
             android:id="@+id/btnForgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:background="@color/transparent"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="15dp"
+            android:textSize="15sp"
+            android:background="@drawable/btn_bg"
+            android:layout_marginBottom="2dp"
+            android:padding="1dp"
+            android:fontFamily="sans-serif"
             android:text="@string/forgot_password"
             android:textAllCaps="true"
-            android:textColor="#ffffff"
-            android:fontFamily="sans-serif" />
-
-
-
-
-
+            android:textColor="#ffffff" />
 
 
     </RelativeLayout>

@@ -64,6 +64,10 @@ public class drawer_home extends AppCompatActivity implements NavigationView.OnN
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new androidx.fragment.app.Fragment()).commit();
                 break;
+            case R.id.nav_qr:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new QRcodeFragment()).commit();
+                break;
             case R.id.nav_profile:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new UserProfile()).commit();

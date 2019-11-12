@@ -43,4 +43,7 @@
     <string name="email">"Correo Electrónico "</string>
     <string name="phone">Celular</string>
     <string name="password_length_error">Contraseña debe ser al menos 6 letras</string>
+    <string name="firstName">Primer Nombre</string>
+    <string name="scan_code">(Escanear codigo para iniciar sesión)</string>
+    <string name="qr_code">QR Codigo</string>
 </resources>

@@ -15,7 +15,7 @@
             android:id="@+id/layoutHead"
             android:background="@drawable/green_grass"
             android:layout_width="match_parent"
-            android:layout_height="180dp">
+            android:layout_height="300dp">
 
 
 
@@ -145,14 +145,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="200dp"
             android:orientation="horizontal"
             android:layout_marginTop="100dp">
 
             <ImageView
                 android:id="@+id/avatarIv"
                 android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_height="200dp"
                 android:layout_marginStart="20dp"
                 android:padding="5dp"
                 android:src="@drawable/profile_icon"/>
@@ -200,9 +200,106 @@
                     android:layout_height="wrap_content"/>
 
 
+
+
+
             </LinearLayout>
 
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rellaybottom"
+            android:orientation="vertical"
+            android:background="#CD9A21"
+            android:layout_width="match_parent"
+            android:layout_height="700dp"
+            android:layout_below="@+id/layoutHead"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp" >
+
+        <TextView
+        android:id="@+id/pesaTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="5dp"
+        android:textColor="@color/colorBlack"/>
+
+            <TextView
+                android:id="@+id/tallaTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/colorBlack"/>
+
+            <TextView
+            android:id="@+id/imcTV"
+            android:layout_width="match_parent"
+            android:textSize="30sp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/colorBlack"/>
+
+            <TextView
+                android:id="@+id/grasaTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/colorBlack"/>
+
+            <TextView
+                android:id="@+id/musculoTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/colorBlack"/>
+
+            <TextView
+                android:id="@+id/kcalTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/colorBlack"/>
+
+            <TextView
+                android:id="@+id/edadmetaTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/colorBlack"/>
+
+            <TextView
+                android:id="@+id/grasaviTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/colorBlack"/>
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
     </RelativeLayout>
 
 </ScrollView>

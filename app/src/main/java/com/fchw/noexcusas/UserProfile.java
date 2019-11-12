@@ -44,7 +44,9 @@ public class UserProfile extends Fragment {
     FirebaseAuth.AuthStateListener firebaseAuthListener;
     Button btEdit, btRefresh, btnBack;
     ImageView avatarIv;
-    TextView nameTv, emailTv, phoneTv;
+    TextView nameTv, emailTv, phoneTv, pesatv,
+            tallatv, imctv, grasatv,
+            musculotv, kcaltv, edadmetatv, grasavitv;
 
 
 public UserProfile(){
@@ -69,6 +71,16 @@ public UserProfile(){
         phoneTv =view.findViewById(R.id.phoneTV);
         btRefresh =view.findViewById(R.id.button_refresh);
 
+        //personal evaluation
+        pesatv =view.findViewById(R.id.pesaTV);
+        tallatv =view.findViewById(R.id.tallaTV);
+        imctv =view.findViewById(R.id.imcTV);
+        grasatv =view.findViewById(R.id.grasaTV);
+        musculotv =view.findViewById(R.id.musculoTV);
+        kcaltv =view.findViewById(R.id.kcalTV);
+        edadmetatv =view.findViewById(R.id.edadmetaTV);
+        grasavitv =view.findViewById(R.id.grasaviTV);
+
         Query query = databaseReference.orderByChild("email").equalTo(user.getEmail());
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -81,11 +93,30 @@ public UserProfile(){
                     String email = ""+ds.child("email").getValue();
                     String phone = ""+ds.child("phone").getValue();
                     String image = ""+ds.child("image").getValue();
+                    //evalutation
+                    String pesa = "Pesa = "+ds.child("pesa").getValue();
+                    String talla = "Talla = "+ds.child("talla").getValue();
+                    String imc = "IMC = "+ds.child("imc").getValue();
+                    String grasa = "%Grasa = "+ds.child("grasa").getValue();
+                    String musculo = "%Musculo = "+ds.child("musculo").getValue();
+                    String kcal = "KCAL = "+ds.child("kcal").getValue();
+                    String edadmeta = "Edad Metabolica = "+ds.child("edadmeta").getValue();
+                    String grasavi = "Grasa Visceral = "+ds.child("grasavi").getValue();
+
 
                     //set data
                     nameTv.setText(name);
                     emailTv.setText(email);
                     phoneTv.setText(phone);
+                    pesatv.setText(pesa);
+                    tallatv.setText(talla);
+                    imctv.setText(imc);
+                    grasatv.setText(grasa);
+                    musculotv.setText(musculo);
+                    kcaltv.setText(kcal);
+                    edadmetatv.setText(edadmeta);
+                    grasavitv.setText(grasavi);
+
                     try {
                         // if image is received then set
                         Picasso.get().load(image).into(avatarIv);

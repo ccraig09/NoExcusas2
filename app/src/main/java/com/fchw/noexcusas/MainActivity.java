@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
     Button signup1, count;
     Button forgotPassword;
     EditText email;
+    TextView acctTV;
     CheckBox remember;
     EditText password;
     FirebaseAuth firebaseAuth;
@@ -101,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
         //for google sign in
         signInButton = findViewById(R.id.sign_in_google);
+        acctTV = findViewById(R.id.alreadyHaveAcctTV);
 
 
 
@@ -115,11 +117,11 @@ public class MainActivity extends AppCompatActivity {
       //for login firebase
         progressBar = findViewById(R.id.progressBar);
         login = findViewById(R.id.btnLogin);
-        count = findViewById(R.id.btnCount);
         signup1 = findViewById(R.id.btnSignup);
         forgotPassword = findViewById(R.id.btnForgotPassword);
         email = findViewById(R.id.etEmail);
         password = findViewById(R.id.etPassword);
+
 
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -182,12 +184,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        count.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Countdown.class));
-            }
-        });
+
 
 
     }
@@ -237,6 +234,15 @@ public class MainActivity extends AppCompatActivity {
                                 hashMap.put("name","");//add later in edit profile
                                 hashMap.put("phone","");
                                 hashMap.put("image","");
+                                hashMap.put("imageQR","");
+                                hashMap.put("pesa","");
+                                hashMap.put("talla","");
+                                hashMap.put("imc","");
+                                hashMap.put("grasa","");
+                                hashMap.put("musculo","");
+                                hashMap.put("kcal","");
+                                hashMap.put("edadmeta","");
+
                                 //firebase database instance
                                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                                 //path to store user datea named "Users"
@@ -259,7 +265,7 @@ public class MainActivity extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(MainActivity.this,""+e.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,""+e.getMessage(),Toast.LENGTH_SHORT).show();
             }
         });
     }

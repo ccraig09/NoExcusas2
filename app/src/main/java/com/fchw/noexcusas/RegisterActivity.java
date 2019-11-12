@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -51,6 +52,7 @@ public class RegisterActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     Button signup;
     Button forgotPassword;
+    ProgressDialog progressDialog;
     EditText mEmail;
     Button btnBack;
     CheckBox remember;
@@ -84,12 +86,14 @@ public class RegisterActivity extends AppCompatActivity {
         btnBack = findViewById(R.id.btn_back);
 
         // firebase login
-        progressBar = findViewById(R.id.progressBar);
         login = findViewById(R.id.btnLogin);
         signup = findViewById(R.id.btnSignup);
         forgotPassword = findViewById(R.id.btnForgotPassword);
         mEmail = findViewById(R.id.etEmail);
         mPassword = findViewById(R.id.etPassword);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Registrando...");
+
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,7 +119,6 @@ public class RegisterActivity extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressBar.setVisibility(View.VISIBLE);
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                 String email = mEmail.getText().toString().trim();
@@ -134,9 +137,6 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                         else {
                             registerUser(email, password); //register the user
-
-                            Toast.makeText(RegisterActivity.this, getString(R.string.registered_succesfully),Toast.LENGTH_LONG).show();
-
                         }
 
                     }
@@ -145,6 +145,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
 
     private void registerUser(String email, String password) {
+        progressDialog.show();
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -152,6 +153,7 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, dismiss dialog and start register activity
+                            progressDialog.dismiss();
                             FirebaseUser user = mAuth.getCurrentUser();
                             //Get user email and uid from auth
                             String email = user.getEmail();
@@ -165,6 +167,16 @@ public class RegisterActivity extends AppCompatActivity {
                             hashMap.put("name","");//add later in edit profile
                             hashMap.put("phone","");
                             hashMap.put("image","");
+                            hashMap.put("imageQR","");
+                            hashMap.put("pesa","");
+                            hashMap.put("talla","");
+                            hashMap.put("imc","");
+                            hashMap.put("grasa","");
+                            hashMap.put("musculo","");
+                            hashMap.put("kcal","");
+                            hashMap.put("edadmeta","");
+                            hashMap.put("grasavi","");
+
                             //firebase database instance
                             FirebaseDatabase database = FirebaseDatabase.getInstance();
                             //path to store user datea named "Users"
@@ -178,6 +190,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                         } else {
                             // If sign in fails, display a message to the user.
+                            progressDialog.dismiss();
                             Toast.makeText(RegisterActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                         }
 
@@ -185,6 +198,8 @@ public class RegisterActivity extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
+                //error, dismiss progress dialog and get and show the error message
+                progressDialog.dismiss();
                 Toast.makeText(RegisterActivity.this, ""+ e.getMessage(),Toast.LENGTH_SHORT).show();
             }
         });
