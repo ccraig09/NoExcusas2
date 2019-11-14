@@ -57,11 +57,11 @@ public class ProfileActivity extends AppCompatActivity {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     //get data
 
-                    String image = "" + ds.child("image").getValue();
+                    String imageQR = "" + ds.child("imageQR").getValue();
 
                     try {
                         // if image is received then set
-                        Picasso.get().load(image).into(ivQR);
+                        Picasso.get().load(imageQR).into(ivQR);
                     } catch (Exception e) {
                         //if there is any exception while getting image then set default
                         Picasso.get().load(R.drawable.et_bg).into(ivQR);
@@ -96,5 +96,7 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(new Intent(ProfileActivity.this, drawer_home.class));
             }
         });
+
+
     }
 }

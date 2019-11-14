@@ -177,12 +177,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        forgotPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ForgotPasswordActivity.class));
-            }
-        });
+
 
 
 
@@ -242,6 +237,7 @@ public class MainActivity extends AppCompatActivity {
                                 hashMap.put("musculo","");
                                 hashMap.put("kcal","");
                                 hashMap.put("edadmeta","");
+                                hashMap.put("vigrasa","");
 
                                 //firebase database instance
                                 FirebaseDatabase database = FirebaseDatabase.getInstance();

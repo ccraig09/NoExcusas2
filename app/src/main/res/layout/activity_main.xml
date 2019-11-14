@@ -91,6 +91,7 @@
             <com.google.android.gms.common.SignInButton
                 android:id="@+id/sign_in_google"
                 android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/btnSignup"
@@ -112,6 +113,53 @@
                 android:indeterminate="false"
                 android:visibility="gone" />
 
+            <TextView
+                android:id="@+id/alreadyHaveAcctTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+
+                android:text="@string/already_have_account"
+                android:textSize="20sp"
+                android:textColor="#ffffff"
+                android:layout_marginTop="15dp"
+                android:layout_below="@id/sign_in_google"/>
+
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/alreadyHaveAcctTV"
+                android:background="@drawable/btn_bg"
+                android:padding="1dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/login"
+                android:textAllCaps="true"
+                android:layout_centerHorizontal="true"
+
+                android:textColor="#ffffff"
+                android:textSize="17sp" />
+
+
+
+            <Button
+                android:id="@+id/btnForgotPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btnLogin"
+                android:layout_centerHorizontal="true"
+
+                android:textSize="15sp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_bg"
+                android:padding="1dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/forgot_password"
+                android:textAllCaps="true"
+                android:textColor="#ffffff" />
+
 
 
 
@@ -129,49 +177,7 @@
         android:layout_alignParentBottom="true"
         android:visibility="gone">
 
-        <TextView
-            android:id="@+id/alreadyHaveAcctTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/already_have_account"
-            android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:layout_above="@+id/btnLogin"/>
 
-
-        <Button
-            android:id="@+id/btnLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="14dp"
-            android:layout_marginBottom="2dp"
-            android:background="@drawable/btn_bg"
-            android:padding="1dp"
-            android:fontFamily="sans-serif"
-            android:text="@string/login"
-            android:textAllCaps="true"
-            android:textColor="#ffffff"
-            android:textSize="17sp" />
-
-
-
-        <Button
-            android:id="@+id/btnForgotPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginRight="15dp"
-            android:textSize="15sp"
-            android:background="@drawable/btn_bg"
-            android:layout_marginBottom="2dp"
-            android:padding="1dp"
-            android:fontFamily="sans-serif"
-            android:text="@string/forgot_password"
-            android:textAllCaps="true"
-            android:textColor="#ffffff" />
 
 
     </RelativeLayout>

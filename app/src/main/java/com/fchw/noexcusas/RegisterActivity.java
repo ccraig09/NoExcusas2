@@ -173,9 +173,10 @@ public class RegisterActivity extends AppCompatActivity {
                             hashMap.put("imc","");
                             hashMap.put("grasa","");
                             hashMap.put("musculo","");
+                            hashMap.put("vigrasa","");
                             hashMap.put("kcal","");
                             hashMap.put("edadmeta","");
-                            hashMap.put("grasavi","");
+
 
                             //firebase database instance
                             FirebaseDatabase database = FirebaseDatabase.getInstance();

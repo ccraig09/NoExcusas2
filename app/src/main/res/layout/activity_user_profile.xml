@@ -155,7 +155,7 @@
                 android:layout_height="200dp"
                 android:layout_marginStart="20dp"
                 android:padding="5dp"
-                android:src="@drawable/profile_icon"/>
+                android:src="@drawable/ic_add_photo"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -227,6 +227,10 @@
             android:layout_marginTop="15dp"
             android:layout_marginStart="5dp"
         android:textColor="@color/colorBlack"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlack" />
 
             <TextView
                 android:id="@+id/tallaTV"
@@ -236,6 +240,11 @@
                 android:textStyle="bold"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/colorBlack"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlack" />
+
 
             <TextView
             android:id="@+id/imcTV"
@@ -245,6 +254,10 @@
             android:textStyle="bold"
             android:layout_marginStart="5dp"
             android:textColor="@color/colorBlack"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlack" />
 
             <TextView
                 android:id="@+id/grasaTV"
@@ -254,6 +267,10 @@
                 android:textStyle="bold"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/colorBlack"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlack" />
 
             <TextView
                 android:id="@+id/musculoTV"
@@ -263,6 +280,10 @@
                 android:textStyle="bold"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/colorBlack"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlack" />
 
             <TextView
                 android:id="@+id/kcalTV"
@@ -272,6 +293,10 @@
                 android:textStyle="bold"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/colorBlack"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlack" />
 
             <TextView
                 android:id="@+id/edadmetaTV"
@@ -281,6 +306,10 @@
                 android:textStyle="bold"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/colorBlack"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlack" />
 
             <TextView
                 android:id="@+id/grasaviTV"
@@ -290,6 +319,10 @@
                 android:textStyle="bold"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/colorBlack"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlack" />
 
 
 

@@ -101,7 +101,7 @@ public UserProfile(){
                     String musculo = "%Musculo = "+ds.child("musculo").getValue();
                     String kcal = "KCAL = "+ds.child("kcal").getValue();
                     String edadmeta = "Edad Metabolica = "+ds.child("edadmeta").getValue();
-                    String grasavi = "Grasa Visceral = "+ds.child("grasavi").getValue();
+                    String grasavi = "Grasa Visceral = "+ds.child("vigrasa").getValue();
 
 
                     //set data
@@ -123,7 +123,7 @@ public UserProfile(){
                     }
                     catch (Exception e){
                         //if there is any exception while getting image then set default
-                        Picasso.get().load(R.drawable.profile_icon).into(avatarIv);
+                        Picasso.get().load(R.drawable.ic_add_photo).into(avatarIv);
 
                     }
                 }
