@@ -24,6 +24,14 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -31,9 +39,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.TextView;
 
 public class drawer_home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+
     private DrawerLayout drawer;
+    Toolbar toolbar;
+
+    TextView mStartDate, mEndDate, mPlan;
+    FirebaseAuth firebaseAuth;
+    FirebaseUser user;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
 
 
     @Override
@@ -41,8 +59,15 @@ public class drawer_home extends AppCompatActivity implements NavigationView.OnN
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer_home);
 
-        Toolbar toolbar = findViewById(R.id.tb);
+        toolbar = findViewById(R.id.tb);
+        mStartDate = findViewById(R.id.startDateTV);
+        mEndDate = findViewById(R.id.endDateTV);
+        mPlan = findViewById(R.id.planTV);
+
         setSupportActionBar(toolbar);
+        /*TextView textView = (TextView)toolbar.findViewById(R.id.toolbartv);
+        textView.setText("No Excusas");
+        getSupportActionBar().setDisplayShowTitleEnabled(false);*/
 
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -53,13 +78,50 @@ public class drawer_home extends AppCompatActivity implements NavigationView.OnN
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        if(savedInstanceState == null) {
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new androidx.fragment.app.Fragment()).commit();
+            navigationView.setCheckedItem(R.id.nav_homeMain);
+        }
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference().child("Users1upbBy8LSvMQvD136RXL-nIvagFvIR-QqsaDSKmVZfxA").child("Firebase google sheets");
+        Query query = databaseReference.orderByChild("email").equalTo(user.getEmail());
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                //checkc until requiered data get
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+
+                    String startdate = "Fecha de Inicio = " + ds.child("Start Date").getValue();
+                    String enddate = "Fecha de Salida = " + ds.child("End Date").getValue();
+                    String plan = "Plan = " + ds.child("Plan").getValue();
+
+
+                    mStartDate.setText(startdate);
+                    mEndDate.setText(enddate);
+                    mPlan.setText(plan);
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+
+        });
 
     }
 
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.nav_homeMain:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new androidx.fragment.app.Fragment()).commit();

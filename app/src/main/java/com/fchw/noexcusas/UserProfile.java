@@ -81,7 +81,7 @@ public UserProfile(){
         edadmetatv =view.findViewById(R.id.edadmetaTV);
         grasavitv =view.findViewById(R.id.grasaviTV);
 
-        Query query = databaseReference.orderByChild("email").equalTo(user.getEmail());
+        Query query = databaseReference.orderByChild("uid").equalTo(user.getUid());
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -94,14 +94,15 @@ public UserProfile(){
                     String phone = ""+ds.child("phone").getValue();
                     String image = ""+ds.child("image").getValue();
                     //evalutation
-                    String pesa = "Pesa = "+ds.child("pesa").getValue();
+                    String pesa = "Peso = "+ds.child("pesa").getValue();
                     String talla = "Talla = "+ds.child("talla").getValue();
                     String imc = "IMC = "+ds.child("imc").getValue();
                     String grasa = "%Grasa = "+ds.child("grasa").getValue();
-                    String musculo = "%Musculo = "+ds.child("musculo").getValue();
+                    String musculo = "%Músculo = "+ds.child("musculo").getValue();
                     String kcal = "KCAL = "+ds.child("kcal").getValue();
-                    String edadmeta = "Edad Metabolica = "+ds.child("edadmeta").getValue();
-                    String grasavi = "Grasa Visceral = "+ds.child("vigrasa").getValue();
+                    String edadmeta = "Edad Metabólica = "+ds.child("edadmeta").getValue();
+                    String grasavi = "%Grasa Visceral = "+ds.child("vigrasa").getValue();
+
 
 
                     //set data

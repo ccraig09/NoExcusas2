@@ -210,13 +210,29 @@
         <LinearLayout
             android:id="@+id/rellaybottom"
             android:orientation="vertical"
-            android:background="#CD9A21"
+            android:background="@drawable/statbcg4"
             android:layout_width="match_parent"
             android:layout_height="700dp"
             android:layout_below="@+id/layoutHead"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="0dp" >
+
+            <TextView
+                android:id="@+id/tvtitle"
+                android:layout_width="match_parent"
+                android:textSize="30sp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="@string/body_eval"
+                android:fontFamily="serif"
+                android:textStyle="bold"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/colorBlack"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlack" />
 
         <TextView
         android:id="@+id/pesaTV"

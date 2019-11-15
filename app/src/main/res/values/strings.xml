@@ -48,6 +48,7 @@
     <string name="firstName">First Name</string>
     <string name="scan_code">(Scan code to start session)</string>
     <string name="qr_code">QR code</string>
+    <string name="body_eval">Body Evaluation</string>
 
 
     <string name="enter_email">Enter your registered email id</string>

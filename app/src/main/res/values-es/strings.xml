@@ -46,4 +46,5 @@
     <string name="firstName">Primer Nombre</string>
     <string name="scan_code">(Escanear codigo para iniciar sesión)</string>
     <string name="qr_code">QR Codigo</string>
+    <string name="body_eval">Evaluación Corporal</string>
 </resources>
