@@ -47,7 +47,7 @@ public class QRcodeFragment extends Fragment {
         databaseReference = firebaseDatabase.getReference("Users");
 
 
-        Query query = databaseReference.orderByChild("email").equalTo(firebaseUser.getEmail());
+        Query query = databaseReference.orderByChild("3").equalTo(firebaseUser.getEmail());
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -56,7 +56,7 @@ public class QRcodeFragment extends Fragment {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     //get data
 
-                    String imageQR = "" + ds.child("imageQR").getValue();
+                    String imageQR = "" + ds.child("7").getValue();
 
                     try {
                         // if image is received then set

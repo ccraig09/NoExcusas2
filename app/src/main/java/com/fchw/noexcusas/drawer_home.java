@@ -87,8 +87,8 @@ public class drawer_home extends AppCompatActivity implements NavigationView.OnN
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference().child("Users1upbBy8LSvMQvD136RXL-nIvagFvIR-QqsaDSKmVZfxA").child("Firebase google sheets");
-        Query query = databaseReference.orderByChild("email").equalTo(user.getEmail());
+        databaseReference = firebaseDatabase.getReference("Users");
+        Query query = databaseReference.orderByChild("3").equalTo(user.getEmail());
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -96,9 +96,9 @@ public class drawer_home extends AppCompatActivity implements NavigationView.OnN
                 //checkc until requiered data get
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
 
-                    String startdate = "Fecha de Inicio = " + ds.child("Start Date").getValue();
-                    String enddate = "Fecha de Salida = " + ds.child("End Date").getValue();
-                    String plan = "Plan = " + ds.child("Plan").getValue();
+                    String startdate = "Fecha de Inicio = " + ds.child("4").getValue();
+                    String enddate = "Fecha de Salida = " + ds.child("5").getValue();
+                    String plan = "Plan = " + ds.child("2").getValue();
 
 
                     mStartDate.setText(startdate);

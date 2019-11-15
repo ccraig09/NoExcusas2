@@ -94,9 +94,9 @@ public UserProfile(){
                     String phone = ""+ds.child("phone").getValue();
                     String image = ""+ds.child("image").getValue();
                     //evalutation
-                    String pesa = "Peso = "+ds.child("pesa").getValue();
-                    String talla = "Talla = "+ds.child("talla").getValue();
-                    String imc = "IMC = "+ds.child("imc").getValue();
+                    String pesa = "Peso = "+ds.child("8").getValue();
+                    String talla = "Talla = "+ds.child("9").getValue();
+                    String imc = "IMC = "+ds.child("10").getValue();
                     String grasa = "%Grasa = "+ds.child("grasa").getValue();
                     String musculo = "%Músculo = "+ds.child("musculo").getValue();
                     String kcal = "KCAL = "+ds.child("kcal").getValue();
