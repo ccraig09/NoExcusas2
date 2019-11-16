@@ -47,8 +47,8 @@ public class ProfileActivity extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Users");
 
-        userEmail.setText(firebaseUser.getEmail());
-        Query query = databaseReference.orderByChild("3").equalTo(firebaseUser.getEmail());
+
+        Query query = databaseReference.orderByChild("email").equalTo(firebaseUser.getEmail());
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -56,8 +56,10 @@ public class ProfileActivity extends AppCompatActivity {
                 //checkc until requiered data get
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     //get data
+                    String name = ""+ds.child("Name").getValue();
+                    userEmail.setText(name);
 
-                    String imageQR = "" + ds.child("7").getValue();
+                    String imageQR = "" + ds.child("QR Image").getValue();
 
                     try {
                         // if image is received then set

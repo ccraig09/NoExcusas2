@@ -11,134 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+
         <RelativeLayout
             android:id="@+id/layoutHead"
             android:background="@drawable/green_grass"
             android:layout_width="match_parent"
             android:layout_height="300dp">
-
-
-
-
-      <!--  <LinearLayout
-            android:padding="16dp"
-            android:layout_centerHorizontal="true"
-            android:background="#ffffff"
-            android:orientation="vertical"
-            android:layout_below="@id/layoutHead"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/childValueEditText"/>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/addButton"
-                android:text="add"/>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/removeButton"
-                android:text="remove"/>
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                android:id="@+id/childValueTextView"/>
-
-
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/name"
-                android:inputType="textPersonName"
-                android:id="@+id/userName"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:hint="@string/age"
-                android:id="@+id/userAge"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/sex"
-                android:id="@+id/userSex"/>
-
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/name"
-                android:textColor="#ffffff"
-                android:gravity="center"
-                android:textSize="35sp"
-                android:layout_below="@+id/avatarIv"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/name"
-                android:textColor="#ffffff"
-                android:gravity="center"
-                android:textSize="35sp"
-                android:layout_below="@+id/avatarIv"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/name"
-                android:textColor="#ffffff"
-                android:gravity="center"
-                android:textSize="35sp"
-                android:layout_below="@+id/avatarIv"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/name"
-                android:textColor="#ffffff"
-                android:gravity="center"
-                android:textSize="35sp"
-                android:layout_below="@+id/avatarIv"/>
-
-
-
-
-
-
-
-
-            <Button
-                android:id="@+id/button_edit"
-                android:layout_marginTop="15dp"
-                android:textColor="@android:color/white"
-                android:background="?colorPrimary"
-                android:textAllCaps="false"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/update_info"
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"/> -->
-
-
 
 
 </RelativeLayout>
@@ -221,7 +99,7 @@
             <TextView
                 android:id="@+id/tvtitle"
                 android:layout_width="match_parent"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:text="@string/body_eval"
@@ -229,33 +107,41 @@
                 android:textStyle="bold"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/colorBlack"/>
+
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/colorBlack" />
+
 
         <TextView
         android:id="@+id/pesaTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginTop="15dp"
             android:layout_marginStart="5dp"
         android:textColor="@color/colorBlack"/>
+
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/colorBlack" />
 
+
             <TextView
                 android:id="@+id/tallaTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/colorBlack"/>
+
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -265,76 +151,141 @@
             <TextView
             android:id="@+id/imcTV"
             android:layout_width="match_parent"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:layout_marginStart="5dp"
             android:textColor="@color/colorBlack"/>
+
+
+            <TextView
+                android:id="@+id/metaimcTV"
+                android:layout_width="match_parent"
+                android:textSize="20sp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/colorBlack"/>
+
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/colorBlack" />
+
+
 
             <TextView
                 android:id="@+id/grasaTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/colorBlack"/>
+
+
+            <TextView
+                android:id="@+id/metagrasaTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/colorBlack"/>
+
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/colorBlack" />
+
 
             <TextView
                 android:id="@+id/musculoTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/colorBlack"/>
+
+
+
+            <TextView
+                android:id="@+id/metamusculoTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/colorBlack"/>
+
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/colorBlack" />
+
+
 
             <TextView
                 android:id="@+id/kcalTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/colorBlack"/>
+
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/colorBlack" />
+
+
 
             <TextView
                 android:id="@+id/edadmetaTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/colorBlack"/>
+
+
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/colorBlack" />
 
+
+
             <TextView
                 android:id="@+id/grasaviTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/colorBlack"/>
+
+
+
+            <TextView
+                android:id="@+id/metagrasaviTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/colorBlack"/>
+
+
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"

@@ -9,6 +9,7 @@ import com.fchw.noexcusas.NutritionActivity;
 import com.fchw.noexcusas.OrdersActivity;
 import com.fchw.noexcusas.R;
 import com.fchw.noexcusas.UserProfile;
+import com.fchw.noexcusas.ui.home.HomeFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -18,6 +19,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -33,12 +35,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class drawer_home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -47,11 +49,11 @@ public class drawer_home extends AppCompatActivity implements NavigationView.OnN
     private DrawerLayout drawer;
     Toolbar toolbar;
 
-    TextView mStartDate, mEndDate, mPlan;
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    ImageView testIV;
 
 
     @Override
@@ -60,9 +62,11 @@ public class drawer_home extends AppCompatActivity implements NavigationView.OnN
         setContentView(R.layout.activity_drawer_home);
 
         toolbar = findViewById(R.id.tb);
-        mStartDate = findViewById(R.id.startDateTV);
+      /*  mStartDate = findViewById(R.id.startDateTV);
         mEndDate = findViewById(R.id.endDateTV);
         mPlan = findViewById(R.id.planTV);
+        mDays = findViewById(R.id.daysTV);
+        //testIV = findViewById(R.id.testiv); */
 
         setSupportActionBar(toolbar);
         /*TextView textView = (TextView)toolbar.findViewById(R.id.toolbartv);
@@ -78,17 +82,17 @@ public class drawer_home extends AppCompatActivity implements NavigationView.OnN
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        if(savedInstanceState == null) {
+        if (savedInstanceState == null) {
 
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new androidx.fragment.app.Fragment()).commit();
+                    new HomeFragment2()).commit();
             navigationView.setCheckedItem(R.id.nav_homeMain);
         }
-        firebaseAuth = FirebaseAuth.getInstance();
+      /*  firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Users");
-        Query query = databaseReference.orderByChild("3").equalTo(user.getEmail());
+        Query query = databaseReference.orderByChild("email").equalTo(user.getEmail());
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -96,14 +100,16 @@ public class drawer_home extends AppCompatActivity implements NavigationView.OnN
                 //checkc until requiered data get
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
 
-                    String startdate = "Fecha de Inicio = " + ds.child("4").getValue();
-                    String enddate = "Fecha de Salida = " + ds.child("5").getValue();
-                    String plan = "Plan = " + ds.child("2").getValue();
+                    String startdate = "Fecha de Inicio = " + ds.child("Start Date").getValue();
+                    String enddate = "Fecha de Salida = " + ds.child("End Date").getValue();
+                    String plan = "Plan = " + ds.child("Plan").getValue();
+                    String days = "Tu plan acaba en " + ds.child("Days Left").getValue() +" dias ";
 
 
                     mStartDate.setText(startdate);
                     mEndDate.setText(enddate);
                     mPlan.setText(plan);
+                    mDays.setText(days);
 
 
                 }
@@ -116,15 +122,15 @@ public class drawer_home extends AppCompatActivity implements NavigationView.OnN
 
         });
 
+    }*/
     }
-
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_homeMain:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new androidx.fragment.app.Fragment()).commit();
+                        new HomeFragment2()).commit();
                 break;
             case R.id.nav_qr:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,

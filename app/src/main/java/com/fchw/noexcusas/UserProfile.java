@@ -46,7 +46,7 @@ public class UserProfile extends Fragment {
     ImageView avatarIv;
     TextView nameTv, emailTv, phoneTv, pesatv,
             tallatv, imctv, grasatv,
-            musculotv, kcaltv, edadmetatv, grasavitv;
+            musculotv, kcaltv, edadmetatv, grasavitv, ymetaimc, ymetagrasa, ymetamusculo, ymetagrasaviceral;
 
 
 public UserProfile(){
@@ -80,6 +80,10 @@ public UserProfile(){
         kcaltv =view.findViewById(R.id.kcalTV);
         edadmetatv =view.findViewById(R.id.edadmetaTV);
         grasavitv =view.findViewById(R.id.grasaviTV);
+        ymetaimc =view.findViewById(R.id.metaimcTV);
+        ymetagrasa =view.findViewById(R.id.metagrasaTV);
+        ymetamusculo =view.findViewById(R.id.metamusculoTV);
+        ymetagrasaviceral =view.findViewById(R.id.metagrasaviTV);
 
         Query query = databaseReference.orderByChild("uid").equalTo(user.getUid());
         query.addValueEventListener(new ValueEventListener() {
@@ -89,25 +93,53 @@ public UserProfile(){
                 //checkc until requiered data get
                 for (DataSnapshot ds: dataSnapshot.getChildren()){
                     //get data
-                    String name = ""+ds.child("name").getValue();
                     String email = ""+ds.child("email").getValue();
-                    String phone = ""+ds.child("phone").getValue();
-                    String image = ""+ds.child("image").getValue();
+
+
+
+                    //set data
+                    emailTv.setText(email);
+
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        Query query2 = databaseReference.orderByChild("email").equalTo(user.getEmail());
+        query2.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                //checkc until requiered data get
+                for (DataSnapshot ds: dataSnapshot.getChildren()){
+                    //get data
+                    String name = ""+ds.child("Name").getValue();
+                    String phone = ""+ds.child("celular").getValue();
+                    String image = ""+ds.child("Profile Image").getValue();
                     //evalutation
-                    String pesa = "Peso = "+ds.child("8").getValue();
-                    String talla = "Talla = "+ds.child("9").getValue();
-                    String imc = "IMC = "+ds.child("10").getValue();
-                    String grasa = "%Grasa = "+ds.child("grasa").getValue();
-                    String musculo = "%Músculo = "+ds.child("musculo").getValue();
-                    String kcal = "KCAL = "+ds.child("kcal").getValue();
-                    String edadmeta = "Edad Metabólica = "+ds.child("edadmeta").getValue();
-                    String grasavi = "%Grasa Visceral = "+ds.child("vigrasa").getValue();
+                    String pesa =  "Peso           = "+ds.child("PESO").getValue();
+                    String talla = "Talla           = "+ds.child("TALLA").getValue();
+                    String imc =   "IMC           = "+ds.child("IMC").getValue();
+                    String grasa = "%Grasa           = "+ds.child("%GRASA").getValue();
+                    String musculo = "%Músculo           = "+ds.child("%MUSCULO").getValue();
+                    String kcal = "KCAL           = "+ds.child("KCAL").getValue();
+                    String edadmeta =     "Edad Metabólica           = "+ds.child("EDAD METABOL").getValue();
+                    String grasavi =     "%Grasa Visceral           = "+ds.child("GRASA VICERAL").getValue();
+                    String metaimc = "Meta           = "+ds.child("Meta IMC").getValue();
+                    String metagrasa = "Meta           = "+ds.child("Meta Grasa").getValue();
+                    String metamusculo = "Meta           = "+ds.child("Meta Musculo").getValue();
+                    String metagrasaviceral = "Meta           = "+ds.child("Meta Grasa Viceral").getKey();
 
 
 
                     //set data
                     nameTv.setText(name);
-                    emailTv.setText(email);
                     phoneTv.setText(phone);
                     pesatv.setText(pesa);
                     tallatv.setText(talla);
@@ -117,6 +149,10 @@ public UserProfile(){
                     kcaltv.setText(kcal);
                     edadmetatv.setText(edadmeta);
                     grasavitv.setText(grasavi);
+                    ymetagrasa.setText(metagrasa);
+                    ymetagrasaviceral.setText(metagrasaviceral);
+                    ymetaimc.setText(metaimc);
+                    ymetamusculo.setText(metamusculo);
 
                     try {
                         // if image is received then set
@@ -138,41 +174,6 @@ public UserProfile(){
         });
 
 
-        /* String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference uidRef = rootRef.child("Users").child(uid);
-        ValueEventListener valueEventListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String name = dataSnapshot.child("name").getValue(String.class);
-                String age = dataSnapshot.child("age").getValue(String.class);
-                String sex = dataSnapshot.child("sex").getValue(String.class);
-                Log.d("TAG", name + ", \n" + sex + ", \n" + age);
-                String childValue = String.valueOf(dataSnapshot.getValue());
-                mChildValueTextView.setText(childValue);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.d("TAG", databaseError.getMessage()); //Don't ignore errors!
-            }
-        };
-        uidRef.addListenerForSingleValueEvent(valueEventListener);
-
-
-
-                btEdit.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        getFragmentManager()
-                                .beginTransaction()
-                                .replace(R.id.fragment_container, new UserProfileEdit())
-                                .commit();
-
-
-                    }
-                });*/
         btRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
