@@ -23,6 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 
 public class HomeFragment2 extends Fragment {
 
@@ -41,6 +42,12 @@ private
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_home2, container, false);
+
+        YouTubePlayerView youTubePlayerView = view.findViewById(R.id.youtube_player_view);
+        getLifecycle().addObserver(youTubePlayerView);
+
+        YouTubePlayerView youTubePlayerView2 = view.findViewById(R.id.youtube_player_view2);
+        getLifecycle().addObserver(youTubePlayerView2);
 
         mStartDate = view.findViewById(R.id.startDateTV);
         mEndDate = view.findViewById(R.id.endDateTV);

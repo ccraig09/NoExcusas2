@@ -12,30 +12,49 @@
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_profile"
             android:title="@string/profile" />
-        <item
-            android:id="@+id/nav_order"
-            android:icon="@drawable/ic_orders"
-            android:title="@string/orders" />
+
         <item
             android:id="@+id/nav_qr"
             android:icon="@drawable/ic_qr"
             android:title="QR Code" />
-        <item
-            android:id="@+id/nav_nutrition"
-            android:icon="@drawable/ic_nutrition"
-            android:title="@string/nutrition" />
-        <item
-            android:id="@+id/nav_chat"
-            android:icon="@drawable/ic_chat"
-            android:title="@string/chat" />
+
+
         <item
             android:id="@+id/nav_coach"
             android:icon="@drawable/ic_coach"
             android:title="@string/coach" />
+
+        <item
+            android:id="@+id/nav_to_go"
+            android:icon="@drawable/ic_to_go"
+            android:title="@string/exercise_to_go" />
+
         <item
             android:id="@+id/nav_information"
             android:icon="@drawable/ic_information"
             android:title="@string/information" />
     </group>
+
+
+    <item android:title="@string/coming_soon">
+         <menu>
+             <item
+                android:id="@+id/nav_order"
+                android:icon="@drawable/ic_orders"
+                android:title="@string/orders" />
+
+             <item
+                 android:id="@+id/nav_chat"
+                 android:icon="@drawable/ic_chat"
+                 android:title="@string/chat" />
+
+             <item
+                 android:id="@+id/nav_nutrition"
+                 android:icon="@drawable/ic_nutrition"
+                 android:title="@string/nutrition" />
+
+        </menu>
+
+    </item>
 
 </menu>

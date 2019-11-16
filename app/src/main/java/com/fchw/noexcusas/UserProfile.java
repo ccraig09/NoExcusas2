@@ -123,18 +123,18 @@ public UserProfile(){
                     String phone = ""+ds.child("celular").getValue();
                     String image = ""+ds.child("Profile Image").getValue();
                     //evalutation
-                    String pesa =  "Peso           = "+ds.child("PESO").getValue();
-                    String talla = "Talla           = "+ds.child("TALLA").getValue();
-                    String imc =   "IMC           = "+ds.child("IMC").getValue();
-                    String grasa = "%Grasa           = "+ds.child("%GRASA").getValue();
-                    String musculo = "%Músculo           = "+ds.child("%MUSCULO").getValue();
-                    String kcal = "KCAL           = "+ds.child("KCAL").getValue();
+                    String pesa =  "Peso                                = "+ds.child("PESO").getValue();
+                    String talla = "Talla                                 = "+ds.child("TALLA").getValue();
+                    String imc =   "IMC                                  = "+ds.child("IMC").getValue();
+                    String grasa = "%Grasa                            = "+ds.child("%GRASA").getValue();
+                    String musculo = "%Músculo                       = "+ds.child("%MUSCULO").getValue();
+                    String kcal = "KCAL                                = "+ds.child("KCAL").getValue();
                     String edadmeta =     "Edad Metabólica           = "+ds.child("EDAD METABOL").getValue();
-                    String grasavi =     "%Grasa Visceral           = "+ds.child("GRASA VICERAL").getValue();
-                    String metaimc = "Meta           = "+ds.child("Meta IMC").getValue();
-                    String metagrasa = "Meta           = "+ds.child("Meta Grasa").getValue();
-                    String metamusculo = "Meta           = "+ds.child("Meta Musculo").getValue();
-                    String metagrasaviceral = "Meta           = "+ds.child("Meta Grasa Viceral").getKey();
+                    String grasavi =     "%Grasa Visceral            = "+ds.child("GRASA VICERAL").getValue();
+                    String metaimc = "Meta = "+ds.child("Meta IMC").getValue();
+                    String metagrasa = "Meta = "+ds.child("Meta Grasa").getValue();
+                    String metamusculo = "Meta = "+ds.child("Meta Musculo").getValue();
+                    String metagrasaviceral = "Meta = "+ds.child("Meta Grasa Viceral").getValue();
 
 
 

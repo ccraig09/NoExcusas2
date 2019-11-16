@@ -6,9 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="@drawable/homebcgself"
+    android:background="@drawable/homebcgself2"
     tools:context=".drawer_home"
-    tools:openDrawer="start">
+    tools:openDrawer="sart">
 
     <LinearLayout
         android:orientation="vertical"

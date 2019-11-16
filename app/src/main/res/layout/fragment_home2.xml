@@ -68,6 +68,28 @@
             android:layout_height="1dp"
             android:background="@color/colorWhite" />
 
+        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+            android:id="@+id/youtube_player_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+
+            app:videoId="cfzD7Gms4jM"
+            app:autoPlay="false"
+            app:showFullScreenButton="true" />
+
+        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+            android:id="@+id/youtube_player_view2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+
+
+            app:videoId="B5xA71WfL7A"
+            app:autoPlay="false"
+            app:showFullScreenButton="true" />
+
+
     </LinearLayout>
 
 </ScrollView>

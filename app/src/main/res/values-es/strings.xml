@@ -47,4 +47,11 @@
     <string name="scan_code">(Escanear codigo para iniciar sesión)</string>
     <string name="qr_code">QR Codigo</string>
     <string name="body_eval">Evaluación Corporal</string>
+    <string name="coming_soon">Proximamente!</string>
+    <string name="exercise_to_go">Rutinas Para Llevar!</string>
+    <string name="to_go_description">“EJERCICIOS PARA LLEVAR” 🚀Por “No Excusas” empieza desde donde estes y a la hora que quieras y puedas. 🚀  🔆Estas rutinas fueron diseñadas especialmente para ti, si no vienes al gym, si estás en CASA, VIAJE, TRABAJO, etc; no hay excusas para dejar de entrenarte.   🔆 Si lo CREES, Lo CREAS, y basta que te animes a probarlo para intentarlo.  Los ejercicios que te presentamos son dos modalidades FUERZA y CARDIO. Tambien hemos incluido una rutina de abdominales.  Y recuerda, todo comienza en TI.</string>
+    <string name="Ab_tut">Abdominales (con tutorial)</string>
+    <string name="carido">Cardio</string>
+    <string name="strength">Fuerza</string>
+    <string name="Ab_notut">Abdominales (sin tutorial)</string>
 </resources>
