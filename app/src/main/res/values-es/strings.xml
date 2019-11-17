@@ -54,4 +54,7 @@
     <string name="carido">Cardio</string>
     <string name="strength">Fuerza</string>
     <string name="Ab_notut">Abdominales (sin tutorial)</string>
+    <string name="motivation_frase">Frase de Motivación 💪</string>
+    <string name="information_data">Información del Cliente</string>
+    <string name="announcements">Anuncios</string>
 </resources>

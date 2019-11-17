@@ -226,10 +226,10 @@ public class MainActivity extends AppCompatActivity {
                                 //put info in hashmap
                                 hashMap.put("email",email);
                                 hashMap.put("uid",uid);
-                                hashMap.put("name","");//add later in edit profile
+                                hashMap.put("Name","");//add later in edit profile
                                 hashMap.put("phone","");
                                 hashMap.put("image","");
-                                hashMap.put("imageQR","");
+                                hashMap.put("QR Image","");
                                 hashMap.put("pesa","");
                                 hashMap.put("talla","");
                                 hashMap.put("imc","");

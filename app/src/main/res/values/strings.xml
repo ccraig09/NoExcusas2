@@ -71,6 +71,7 @@ And remember, it all starts with you. </string>
     <string name="enter_email">Enter your registered email id</string>
     <string name="instructions_sent">We have sent you instructions to reset your password!</string>
     <string name="error_email">Failed to send reset email!"</string>
+    <string name="announcements">Announcements</string>
 
     <string name="menu_home" translatable="false">Home</string>
     <string name="menu_gallery" translatable="false">Gallery</string>
@@ -79,12 +80,14 @@ And remember, it all starts with you. </string>
     <string name="menu_share" translatable="false">Share</string>
     <string name="menu_send" translatable="false">Send</string>
     <string name="chat">Chat</string>
+    <string name="motivation_frase">Motivational Phrase</string>
+    <string name="information_data">Membership information</string>
 
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 
 
 </resources>

@@ -14,9 +14,9 @@
             android:title="@string/profile" />
 
         <item
-            android:id="@+id/nav_qr"
-            android:icon="@drawable/ic_qr"
-            android:title="QR Code" />
+            android:id="@+id/nav_to_go"
+            android:icon="@drawable/ic_to_go"
+            android:title="@string/exercise_to_go" />
 
 
         <item
@@ -25,9 +25,9 @@
             android:title="@string/coach" />
 
         <item
-            android:id="@+id/nav_to_go"
-            android:icon="@drawable/ic_to_go"
-            android:title="@string/exercise_to_go" />
+            android:id="@+id/nav_qr2"
+            android:icon="@drawable/ic_qr"
+            android:title="QR Code" />
 
         <item
             android:id="@+id/nav_information"

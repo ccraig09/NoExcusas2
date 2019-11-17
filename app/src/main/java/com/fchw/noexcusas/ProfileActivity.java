@@ -45,39 +45,75 @@ public class ProfileActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("Users");
+        databaseReference = firebaseDatabase.getReference("UsersSheets");
 
 
         Query query = databaseReference.orderByChild("email").equalTo(firebaseUser.getEmail());
         query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                //checkc until requiered data get
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    //get data
-                    String name = ""+ds.child("Name").getValue();
-                    userEmail.setText(name);
+                                            //checkc until requiered data get
+                                            for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                                                //get data
+                                                String name = "" + ds.child("Name").getValue();
+                                                userEmail.setText(name);
 
-                    String imageQR = "" + ds.child("QR Image").getValue();
+                                                String imageQR = "" + ds.child("QR Image").getValue();
 
-                    try {
-                        // if image is received then set
-                        Picasso.get().load(imageQR).into(ivQR);
-                    } catch (Exception e) {
-                        //if there is any exception while getting image then set default
-                        Picasso.get().load(R.drawable.et_bg).into(ivQR);
+                                                try {
+                                                    // if image is received then set
+                                                    Picasso.get().load(imageQR).into(ivQR);
+                                                } catch (Exception e) {
+                                                    //if there is any exception while getting image then set default
+                                                    Picasso.get().load(R.drawable.et_bg).into(ivQR);
 
+
+                                                }
+
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                        }
+                                    });
+
+
+
+            Query query2 = databaseReference.orderByChild("uid").equalTo(firebaseUser.getEmail());
+        query2.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                    //checkc until requiered data get
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                        //get data
+                        String name = ""+ds.child("Name").getValue();
+                        userEmail.setText(name);
+
+                        String imageQR = "" + ds.child("QR Image").getValue();
+
+                        try {
+                            // if image is received then set
+                            Picasso.get().load(imageQR).into(ivQR);
+                        } catch (Exception e) {
+                            //if there is any exception while getting image then set default
+                            Picasso.get().load(R.drawable.et_bg).into(ivQR);
+
+
+                        }
 
                     }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
                 }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
         });
         userLogout.setOnClickListener(new View.OnClickListener() {
             @Override

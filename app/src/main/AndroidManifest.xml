@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".youtube"/>
-        <activity android:name=".QRActivity" />
+        <activity android:name=".QrcodeShowfragment" />
         <activity android:name=".Countdown" />
         <activity android:name=".RegisterActivity" />
         <activity

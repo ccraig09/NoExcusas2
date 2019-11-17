@@ -27,7 +27,7 @@ public class ExerciseToGoActivity extends Fragment {
         YouTubePlayerView youTubePlayerView3 = view.findViewById(R.id.youtube_player_view3);
         getLifecycle().addObserver(youTubePlayerView3);
 
-        YouTubePlayerView youTubePlayerView4 = view.findViewById(R.id.youtube_player_view3);
+        YouTubePlayerView youTubePlayerView4 = view.findViewById(R.id.youtube_player_view4);
         getLifecycle().addObserver(youTubePlayerView4);
 
 

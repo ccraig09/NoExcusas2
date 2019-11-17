@@ -62,7 +62,7 @@ public UserProfile(){
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("Users");
+        databaseReference = firebaseDatabase.getReference("UsersSheets");
 
         //init views
         avatarIv =view.findViewById(R.id.avatarIv);
@@ -85,7 +85,7 @@ public UserProfile(){
         ymetamusculo =view.findViewById(R.id.metamusculoTV);
         ymetagrasaviceral =view.findViewById(R.id.metagrasaviTV);
 
-        Query query = databaseReference.orderByChild("uid").equalTo(user.getUid());
+        Query query = databaseReference.orderByChild("email").equalTo(user.getEmail());
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

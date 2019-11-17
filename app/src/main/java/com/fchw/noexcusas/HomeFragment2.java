@@ -28,7 +28,7 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTube
 public class HomeFragment2 extends Fragment {
 
 private
-    TextView mStartDate, mEndDate, mPlan, mDays;
+    TextView mStartDate, mEndDate, mPlan, mDays, mMotivate;
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
     FirebaseDatabase firebaseDatabase;
@@ -53,12 +53,13 @@ private
         mEndDate = view.findViewById(R.id.endDateTV);
         mPlan = view.findViewById(R.id.planTV);
         mDays = view.findViewById(R.id.daysTV);
+        mMotivate = view.findViewById(R.id.motivationTV);
 
 
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("Users");
+        databaseReference = firebaseDatabase.getReference("UsersSheets");
         Query query = databaseReference.orderByChild("email").equalTo(user.getEmail());
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -69,14 +70,16 @@ private
 
                     String startdate = "Fecha de Inicio = " + ds.child("Start Date").getValue();
                     String enddate = "Fecha de Salida = " + ds.child("End Date").getValue();
-                    String plan = "Plan = " + ds.child("Plan").getValue();
-                    String days = "Tu plan acaba en " + ds.child("Days Left").getValue() + " dias ";
+                    String plan = "Plan " + ds.child("Plan").getValue();
+                    String days = "Tu plan vence en " + ds.child("Days Left").getValue() + " días ";
+                    String motiv = "" + ds.child("Motivacion").getValue();
 
 
                     mStartDate.setText(startdate);
                     mEndDate.setText(enddate);
                     mPlan.setText(plan);
                     mDays.setText(days);
+                    mMotivate.setText(motiv);
 
 
                 }
