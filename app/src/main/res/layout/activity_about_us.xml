@@ -54,7 +54,18 @@
             android:layout_marginTop="0dp"
             android:layout_marginEnd="0dp" >
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:linksClickable="true"
+                android:text="Whatsapp link (Click)"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold">
 
+            </TextView>
 
             <TextView
                 android:layout_width="match_parent"
@@ -65,13 +76,42 @@
                 android:gravity="center"
                 android:textSize="20sp"
                 android:textColor="@color/colorBlack"
+                android:textColorLink="@color/colorWhite"
+                android:textStyle="bold">
+
+            </TextView>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:linksClickable="true"
+                android:text="Facebook link (Click)"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="#3b5998"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:linksClickable="true"
+                android:text="@string/facebook"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColorLink="@color/colorWhite"
                 android:textStyle="bold">
 
             </TextView>
 
 
 
-           <ImageView
+
+            <ImageView
                android:layout_marginTop="20dp"
                android:layout_width="match_parent"
                android:layout_height="700dp"
