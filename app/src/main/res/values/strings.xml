@@ -88,6 +88,8 @@ And remember, it all starts with you. </string>
     <string name="chat">Chat</string>
     <string name="motivation_frase">Motivational Phrase</string>
     <string name="information_data">Membership information</string>
+    //admob
+    <string name="banner_ad_unit_id">ca-app-pub-9125010107042455/1102015253</string>
 
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>

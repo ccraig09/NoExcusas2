@@ -15,6 +15,10 @@ public class AboutUsActivity extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.activity_about_us,container, false);
-    }
+        final View view = inflater.inflate(R.layout.activity_about_us, container, false);
+
+
+
+        return view;
+        }
 }
