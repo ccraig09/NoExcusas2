@@ -72,6 +72,12 @@ And remember, it all starts with you. </string>
     <string name="instructions_sent">We have sent you instructions to reset your password!</string>
     <string name="error_email">Failed to send reset email!"</string>
     <string name="announcements">Announcements</string>
+    <string name="phraseDay">Phrase of the day</string>
+    <string name="gymDescribe">Designed to improve the physical fitness of people who want to overcome their performance, combining exercises of weight, strength, coordination and agility.
+</string>
+    <string name="wapp">https://wa.me/59169976156
+</string>
+
 
     <string name="menu_home" translatable="false">Home</string>
     <string name="menu_gallery" translatable="false">Gallery</string>

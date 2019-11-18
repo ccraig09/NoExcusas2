@@ -135,10 +135,11 @@ public class drawer_home extends AppCompatActivity implements NavigationView.OnN
             case R.id.nav_qr2:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new QrcodeShowfragment()).commit();
+                break;
 
             case R.id.nav_to_go:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new ExerciseToGoActivity()).commit();
+                        new RutinasToGo()).commit();
                 break;
             case R.id.nav_profile:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,

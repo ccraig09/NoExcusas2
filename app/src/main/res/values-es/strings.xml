@@ -57,4 +57,6 @@
     <string name="motivation_frase">Frase de Motivación 💪</string>
     <string name="information_data">Información del Cliente</string>
     <string name="announcements">Anuncios</string>
+    <string name="phraseDay">"Frase Del Día "</string>
+    <string name="gymDescribe">Concebido para mejorar la aptitud física de las personas que desean superar su rendimiento, combinando ejercicios de peso, fuerza, coordinación y agilidad.</string>
 </resources>

@@ -28,7 +28,7 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTube
 public class HomeFragment2 extends Fragment {
 
 private
-    TextView mStartDate, mEndDate, mPlan, mDays, mMotivate;
+    TextView mStartDate, mEndDate, mPlan, mDays, mAnnounce, mMotivate;
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
     FirebaseDatabase firebaseDatabase;
@@ -54,6 +54,7 @@ private
         mPlan = view.findViewById(R.id.planTV);
         mDays = view.findViewById(R.id.daysTV);
         mMotivate = view.findViewById(R.id.motivationTV);
+        mAnnounce = view.findViewById(R.id.announce);
 
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -73,6 +74,7 @@ private
                     String plan = "Plan " + ds.child("Plan").getValue();
                     String days = "Tu plan vence en " + ds.child("Days Left").getValue() + " días ";
                     String motiv = "" + ds.child("Motivacion").getValue();
+                    String announce = "" +ds.child("Anuncios").getValue();
 
 
                     mStartDate.setText(startdate);
@@ -80,6 +82,7 @@ private
                     mPlan.setText(plan);
                     mDays.setText(days);
                     mMotivate.setText(motiv);
+                    mAnnounce.setText(announce);
 
 
                 }

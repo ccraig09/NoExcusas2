@@ -16,6 +16,22 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:orientation="vertical">
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="@string/phraseDay"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="5dp"
+            android:textColor="@color/colorBlack"
+            android:textAllCaps="true"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="250dp"
+            android:layout_height="2dp"
+            android:layout_marginStart="12dp"
+            android:background="@color/NoExOrange" />
 
 
         <TextView
@@ -146,6 +162,17 @@
             android:layout_marginStart="12dp"
             android:background="@color/NoExOrange" />
 
+        <TextView
+            android:id="@+id/announce"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
     </LinearLayout>
 
         <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
@@ -163,7 +190,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-
 
             app:videoId="B5xA71WfL7A"
             app:autoPlay="false"

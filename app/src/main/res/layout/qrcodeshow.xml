@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/green_grass"
-    tools:context=".QRcodeFragment2">
+    tools:context=".QrcodeShowfragment">
 
 
 
