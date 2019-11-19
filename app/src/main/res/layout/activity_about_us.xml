@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#F1EDED"
     tools:context=".AboutUsActivity">
 
@@ -49,17 +48,16 @@
             android:background="@drawable/statbcg4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/layoutHead"
-            android:layout_alignParentEnd="true"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="0dp" >
 
             <TextView
+                android:id="@+id/clickwapp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autoLink="web"
                 android:linksClickable="true"
-                android:text="Whatsapp link (Click)"
+                android:text="@string/wappClick"
                 android:gravity="center"
                 android:textSize="20sp"
                 android:textColor="@color/colorBlack"
@@ -87,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:autoLink="web"
                 android:linksClickable="true"
-                android:text="Facebook link (Click)"
+                android:text="@string/facbeookClick"
                 android:gravity="center"
                 android:textSize="20sp"
                 android:textColor="#3b5998"
@@ -96,6 +94,7 @@
             </TextView>
 
             <TextView
+                android:id="@+id/clickfb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autoLink="web"
@@ -112,6 +111,7 @@
 
 
             <ImageView
+                android:contentDescription="@string/app_name"
                android:layout_marginTop="20dp"
                android:layout_width="match_parent"
                android:layout_height="700dp"
@@ -126,6 +126,7 @@
                 android:background="@color/colorBlack" />
 
             <ImageView
+                android:contentDescription="@string/app_name"
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="700dp"
@@ -142,6 +143,7 @@
                 android:background="@color/colorBlack" />
 
             <ImageView
+                android:contentDescription="@string/app_name"
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="700dp"
@@ -158,6 +160,7 @@
 
 
             <ImageView
+                android:contentDescription="@string/app_name"
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="700dp"
