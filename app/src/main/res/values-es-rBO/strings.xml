@@ -59,4 +59,8 @@
     <string name="announcements">Anuncios</string>
     <string name="phraseDay">"Frase Del Día "</string>
     <string name="gymDescribe">Concebido para mejorar la aptitud física de las personas que desean superar su rendimiento, combinando ejercicios de peso, fuerza, coordinación y agilidad.</string>
+    <string name="birthday">Fecha de Nacimiento</string>
+    <string name="sport">Deporte</string>
+    <string name="study">Carrera</string>
+    <string name="birthplace">"Lugar de Nacimiento "</string>
 </resources>

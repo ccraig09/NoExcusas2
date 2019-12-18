@@ -109,13 +109,21 @@
 
 
 
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    android:text="Cargando Fotos..."
+    android:textSize="15dp"
+    android:textAlignment="center"/>
 
             <ImageView
+                android:id="@+id/schedulePhotoIV"
                 android:contentDescription="@string/app_name"
                android:layout_marginTop="20dp"
                android:layout_width="match_parent"
                android:layout_height="700dp"
-               android:src="@drawable/infosched">
+                android:src="@drawable/ic_cloud">
 
            </ImageView>
 
@@ -126,12 +134,12 @@
                 android:background="@color/colorBlack" />
 
             <ImageView
+                android:id="@+id/pricesPhotoIV"
                 android:contentDescription="@string/app_name"
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="700dp"
-                android:src="@drawable/infoprice">
-
+                android:src="@drawable/ic_cloud">
             </ImageView>
 
 
@@ -143,12 +151,12 @@
                 android:background="@color/colorBlack" />
 
             <ImageView
+                android:id="@+id/planbBigIV"
                 android:contentDescription="@string/app_name"
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="700dp"
-                android:src="@drawable/infoplan3">
-
+                android:src="@drawable/ic_cloud">
             </ImageView>
 
 
@@ -160,12 +168,12 @@
 
 
             <ImageView
+                android:id="@+id/locationPhotoIV"
                 android:contentDescription="@string/app_name"
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="700dp"
-                android:src="@drawable/infolocate">
-
+                android:src="@drawable/ic_cloud">
             </ImageView>
 
 

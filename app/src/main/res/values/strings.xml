@@ -51,6 +51,10 @@
     <string name="body_eval">Body Evaluation</string>
     <string name="coming_soon" > Coming Soon!</string>
     <string name="exercise_to_go">Exercises To Go!</string>
+    <string name="birthday" >Birth date</string>
+    <string name="sport" >Sport</string>
+    <string name="study" >Study</string>
+    <string name="birthplace">Birth Place</string>
 
 
 
@@ -75,7 +79,7 @@ And remember, it all starts with you. </string>
     <string name="phraseDay">Phrase of the day</string>
     <string name="gymDescribe">Designed to improve the physical fitness of people who want to overcome their performance, combining exercises of weight, strength, coordination and agility.
 </string>
-    <string name="wappClick" translatable="false">Whatsapp link (Click)</string>
+    <string name="wappClick">Whatsapp link (Click)</string>
     <string name="facbeookClick" translatable="false">Facebook link (Click)</string>
     <string name="wapp" translatable="false">https://wa.me/59169976156</string>
     <string name="facebook" translatable="false">https://www.facebook.com/noexcusastrainingcenter</string>
