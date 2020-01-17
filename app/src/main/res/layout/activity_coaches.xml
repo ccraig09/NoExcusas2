@@ -11,7 +11,7 @@
         <LinearLayout
             android:id="@+id/rellaybottom"
             android:orientation="vertical"
-            android:background="@drawable/green_grass"
+            android:background="@drawable/green_grasspng"
             android:layout_width="match_parent"
             android:layout_height="700dp"
             android:layout_marginTop="0dp"
@@ -37,10 +37,10 @@
 
 
             <ImageView
+                android:id="@+id/jose"
                 android:layout_width="wrap_content"
                 android:layout_height="300dp"
-                android:layout_marginTop="15dp"
-                android:src="@drawable/coachjose"/>
+                android:layout_marginTop="15dp"/>
 
 
             <TextView
@@ -200,10 +200,10 @@
 
 
             <ImageView
+                android:id="@+id/kiki"
                 android:layout_width="wrap_content"
                 android:layout_height="300dp"
-                android:layout_marginTop="15dp"
-                android:src="@drawable/coachkiki" />
+                android:layout_marginTop="15dp" />
 
             <TextView
                 android:layout_width="300dp"
@@ -362,10 +362,10 @@
 
 
             <ImageView
+                android:id="@+id/carlos"
                 android:layout_width="wrap_content"
                 android:layout_height="300dp"
-                android:layout_marginTop="15dp"
-                android:src="@drawable/maintest1" />
+                android:layout_marginTop="15dp" />
 
             <TextView
                 android:layout_width="300dp"
@@ -521,6 +521,18 @@
                 android:layout_width="300dp"
                 android:layout_height="2dp"
                 android:background="@color/colorWhite" />
+
+
+            <com.google.android.gms.ads.AdView
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center"
+                ads:adSize="BANNER"
+                ads:adUnitId="ca-app-pub-9125010107042455/7389117191">
+            </com.google.android.gms.ads.AdView>
 
 
 

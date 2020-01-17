@@ -14,9 +14,10 @@
         android:id="@+id/layoutHead"
         android:layout_height="300dp">
         <RelativeLayout
-            android:background="@drawable/green_grass"
             android:layout_width="match_parent"
+            android:background="@drawable/green_grasspng"
             android:layout_height="300dp">
+
 
             <TextView
                 android:id="@+id/nameTV"
@@ -173,6 +174,16 @@
                 android:layout_height="5dp"
                 android:layout_marginTop="40dp"
                 android:background="@color/colorBlack" />
+
+            <com.google.android.gms.ads.AdView
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adView"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                ads:adSize="BANNER"
+                ads:adUnitId="ca-app-pub-9125010107042455/7389117191">
+            </com.google.android.gms.ads.AdView>
 
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,16 +7,11 @@
     tools:context=".UserProfile">
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
         <RelativeLayout
             android:id="@+id/layoutHead"
-            android:background="@drawable/green_grass"
+            android:background="@drawable/green_grasspng"
             android:layout_width="match_parent"
-            android:layout_height="300dp">
+            android:layout_height="250dp">
 
 
 </RelativeLayout>
@@ -25,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:orientation="horizontal"
-            android:layout_marginTop="100dp">
+            android:layout_marginTop="60dp">
 
             <ImageView
                 android:id="@+id/avatarIv"
@@ -59,6 +54,14 @@
                     android:layout_marginLeft="5dp"/>
 
                 <TextView
+                    android:id="@+id/ageTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:textColor="#ffffff"
+                    android:layout_marginLeft="5dp"/>
+
+                <TextView
                     android:id="@+id/phoneTV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -75,6 +78,7 @@
                     android:layout_gravity="center_horizontal"
                     android:text="@string/refresh"
                     android:layout_width="140dp"
+                    android:visibility="gone"
                     android:layout_height="wrap_content"/>
 
 
@@ -88,18 +92,213 @@
         <LinearLayout
             android:id="@+id/rellaybottom"
             android:orientation="vertical"
-            android:background="@drawable/statbcg4"
-            android:layout_width="match_parent"
-            android:layout_height="700dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/layoutHead"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="0dp" >
 
+
+
+
+
+
+
+            <TextView
+                android:id="@+id/tvCorporal"
+                android:layout_width="match_parent"
+                android:textSize="20sp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="@string/body_composition"
+                android:fontFamily="serif"
+                android:textStyle="bold"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/colorBlack"/>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlack" />
+
+
+        </LinearLayout>
+
+            <ScrollView
+                android:id="@+id/compositionSV"
+                android:layout_below="@+id/rellaybottom"
+                android:layout_width="wrap_content"
+                android:layout_height="230dp">
+
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+
+                    <LinearLayout
+                        android:id="@+id/tvCorporal2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:fontFamily="serif"
+                            android:text="@string/BMI"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="3dp"
+                            android:background="@color/colorBlack" />
+
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="256dp"
+                            android:src="@drawable/bmipic">
+
+                        </ImageView>
+
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:fontFamily="serif"
+                            android:text="@string/FatPercent"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="3dp"
+                            android:background="@color/colorBlack" />
+
+                        <HorizontalScrollView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:src="@drawable/grasacorppic">
+
+                        </ImageView>
+
+                        </HorizontalScrollView>
+
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:fontFamily="serif"
+                            android:text="@string/visFat"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="3dp"
+                            android:background="@color/colorBlack" />
+
+                        <HorizontalScrollView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:layout_width="200dp"
+                                android:layout_height="200dp"
+                                android:src="@drawable/grasavispic">
+
+                            </ImageView>
+
+                        </HorizontalScrollView>
+
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:fontFamily="serif"
+                            android:text="@string/muscle"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="3dp"
+                            android:background="@color/colorBlack" />
+
+                        <HorizontalScrollView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:layout_width="200dp"
+                                android:layout_height="200dp"
+                                android:src="@drawable/musculopic">
+
+                            </ImageView>
+
+                        </HorizontalScrollView>
+
+
+
+                    </LinearLayout>
+
+
+
+
+
+
+
+
+                </RelativeLayout>
+
+            </ScrollView>
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/compositionSV"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/rellaybottom2"
+            android:orientation="vertical"
+            android:background="@drawable/statbcg4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlack" />
+
             <TextView
                 android:id="@+id/tvtitle"
                 android:layout_width="match_parent"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:text="@string/body_eval"
@@ -114,12 +313,11 @@
                 android:layout_height="1dp"
                 android:background="@color/colorBlack" />
 
-
         <TextView
         android:id="@+id/pesaTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="25sp"
             android:textStyle="bold"
             android:layout_marginTop="15dp"
             android:layout_marginStart="5dp"
@@ -136,7 +334,7 @@
                 android:id="@+id/tallaTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textStyle="bold"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/colorBlack"/>
@@ -151,22 +349,12 @@
             <TextView
             android:id="@+id/imcTV"
             android:layout_width="match_parent"
-            android:textSize="20sp"
+            android:textSize="25sp"
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:layout_marginStart="5dp"
             android:textColor="@color/colorBlack"/>
 
-
-            <TextView
-                android:id="@+id/metaimcTV"
-                android:layout_width="match_parent"
-                android:textSize="20sp"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textAlignment="center"
-                android:layout_marginStart="5dp"
-                android:textColor="@color/colorBlack"/>
 
 
             <View
@@ -180,22 +368,12 @@
                 android:id="@+id/grasaTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textStyle="bold"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/colorBlack"/>
 
 
-            <TextView
-                android:id="@+id/metagrasaTV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textAlignment="center"
-
-                android:layout_marginStart="5dp"
-                android:textColor="@color/colorBlack"/>
 
 
             <View
@@ -208,23 +386,11 @@
                 android:id="@+id/musculoTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textStyle="bold"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/colorBlack"/>
 
-
-
-            <TextView
-                android:id="@+id/metamusculoTV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textAlignment="center"
-
-                android:layout_marginStart="5dp"
-                android:textColor="@color/colorBlack"/>
 
 
             <View
@@ -238,7 +404,7 @@
                 android:id="@+id/kcalTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textStyle="bold"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/colorBlack"/>
@@ -248,17 +414,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/colorBlack" />
-
-
-
-            <TextView
-                android:id="@+id/edadmetaTV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_marginStart="5dp"
-                android:textColor="@color/colorBlack"/>
 
 
 
@@ -273,22 +428,12 @@
                 android:id="@+id/grasaviTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textStyle="bold"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/colorBlack"/>
 
 
-
-            <TextView
-                android:id="@+id/metagrasaviTV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:textAlignment="center"
-                android:textStyle="bold"
-                android:layout_marginStart="5dp"
-                android:textColor="@color/colorBlack"/>
 
 
 
@@ -297,6 +442,16 @@
                 android:layout_height="1dp"
                 android:background="@color/colorBlack" />
 
+            <com.google.android.gms.ads.AdView
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center"
+                ads:adSize="BANNER"
+                ads:adUnitId="ca-app-pub-9125010107042455/7389117191">
+            </com.google.android.gms.ads.AdView>
 
 
 
@@ -304,8 +459,10 @@
 
 
 
-    </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
     </RelativeLayout>
 
-</ScrollView>

@@ -99,7 +99,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:visibility="gone"
+                android:visibility="visible"
                 android:layout_below="@+id/btnSignup"
 
                 />
@@ -165,6 +165,19 @@
                 android:text="@string/forgot_password"
                 android:textAllCaps="true"
                 android:textColor="#ffffff" />
+
+            <com.google.android.gms.ads.AdView
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/btnForgotPassword"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="5dp"
+                ads:adSize="BANNER"
+                ads:adUnitId="ca-app-pub-9125010107042455/7389117191">
+            </com.google.android.gms.ads.AdView>
 
 
 

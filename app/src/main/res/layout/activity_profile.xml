@@ -116,6 +116,17 @@
         android:textColor="#ffffff"
         android:textSize="25sp" />
 
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-9125010107042455/7389117191">
+    </com.google.android.gms.ads.AdView>
+
 </LinearLayout>
 
 

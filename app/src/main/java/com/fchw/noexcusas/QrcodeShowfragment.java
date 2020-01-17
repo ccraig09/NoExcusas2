@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.fchw.noexcusas.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -23,6 +25,7 @@ import com.squareup.picasso.Picasso;
 
 public class QrcodeShowfragment extends Fragment {
     ImageView ivQR;
+    private AdView mAdView;
 
     FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
@@ -37,6 +40,9 @@ public class QrcodeShowfragment extends Fragment {
 
         ivQR = view.findViewById(R.id.qrIV);
 
+        mAdView = view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
         firebaseDatabase = FirebaseDatabase.getInstance();

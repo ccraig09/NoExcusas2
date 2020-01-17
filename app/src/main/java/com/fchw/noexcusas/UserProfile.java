@@ -21,6 +21,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.client.Firebase;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -40,13 +42,15 @@ public class UserProfile extends Fragment {
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
     FirebaseDatabase firebaseDatabase;
+    private AdView mAdView;
+
     DatabaseReference databaseReference;
     FirebaseAuth.AuthStateListener firebaseAuthListener;
     Button btEdit, btRefresh, btnBack;
     ImageView avatarIv;
     TextView nameTv, emailTv, phoneTv, pesatv,
             tallatv, imctv, grasatv,
-            musculotv, kcaltv, edadmetatv, grasavitv, ymetaimc, ymetagrasa, ymetamusculo, ymetagrasaviceral;
+            musculotv, kcaltv, grasavitv;
 
 
 public UserProfile(){
@@ -71,6 +75,11 @@ public UserProfile(){
         phoneTv =view.findViewById(R.id.phoneTV);
         btRefresh =view.findViewById(R.id.button_refresh);
 
+        //admob
+        mAdView = view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
         //personal evaluation
         pesatv =view.findViewById(R.id.pesaTV);
         tallatv =view.findViewById(R.id.tallaTV);
@@ -78,12 +87,8 @@ public UserProfile(){
         grasatv =view.findViewById(R.id.grasaTV);
         musculotv =view.findViewById(R.id.musculoTV);
         kcaltv =view.findViewById(R.id.kcalTV);
-        edadmetatv =view.findViewById(R.id.edadmetaTV);
         grasavitv =view.findViewById(R.id.grasaviTV);
-        ymetaimc =view.findViewById(R.id.metaimcTV);
-        ymetagrasa =view.findViewById(R.id.metagrasaTV);
-        ymetamusculo =view.findViewById(R.id.metamusculoTV);
-        ymetagrasaviceral =view.findViewById(R.id.metagrasaviTV);
+
 
         Query query = databaseReference.orderByChild("email").equalTo(user.getEmail());
         query.addValueEventListener(new ValueEventListener() {
@@ -123,18 +128,13 @@ public UserProfile(){
                     String phone = ""+ds.child("celular").getValue();
                     String image = ""+ds.child("Profile Image").getValue();
                     //evalutation
-                    String pesa =  "Peso                                = "+ds.child("PESO").getValue();
-                    String talla = "Talla                                 = "+ds.child("TALLA").getValue();
-                    String imc =   "IMC                                  = "+ds.child("IMC").getValue();
-                    String grasa = "%Grasa                            = "+ds.child("%GRASA").getValue();
-                    String musculo = "%Músculo                       = "+ds.child("%MUSCULO").getValue();
-                    String kcal = "KCAL                                = "+ds.child("KCAL").getValue();
-                    String edadmeta =     "Edad Metabólica           = "+ds.child("EDAD METABOL").getValue();
-                    String grasavi =     "%Grasa Visceral            = "+ds.child("GRASA VICERAL").getValue();
-                    String metaimc = "Meta = "+ds.child("Meta IMC").getValue();
-                    String metagrasa = "Meta = "+ds.child("Meta Grasa").getValue();
-                    String metamusculo = "Meta = "+ds.child("Meta Musculo").getValue();
-                    String metagrasaviceral = "Meta = "+ds.child("Meta Grasa Viceral").getValue();
+                    String pesa =  "Peso = "+ds.child("PESO").getValue();
+                    String talla = "Talla = "+ds.child("TALLA").getValue();
+                    String imc =   "IMC = "+ds.child("IMC").getValue();
+                    String grasa = "%Grasa = "+ds.child("%GRASA").getValue();
+                    String musculo = "%Músculo = "+ds.child("%MUSCULO").getValue();
+                    String kcal = "KCAL = "+ds.child("KCAL").getValue();
+
 
 
 
@@ -147,12 +147,7 @@ public UserProfile(){
                     grasatv.setText(grasa);
                     musculotv.setText(musculo);
                     kcaltv.setText(kcal);
-                    edadmetatv.setText(edadmeta);
-                    grasavitv.setText(grasavi);
-                    ymetagrasa.setText(metagrasa);
-                    ymetagrasaviceral.setText(metagrasaviceral);
-                    ymetaimc.setText(metaimc);
-                    ymetamusculo.setText(metamusculo);
+
 
                     try {
                         // if image is received then set

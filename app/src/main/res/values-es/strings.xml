@@ -63,4 +63,22 @@
     <string name="sport">Deporte</string>
     <string name="study">Carrera</string>
     <string name="birthplace">"Lugar de Nacimiento "</string>
+    <string name="body_composition">Información sobre la composición corporal</string>
+    <string name="BMI">Índice de Masa Corporal</string>
+    <string name="FatPercent">Grasa Coporal</string>
+    <string name="muscle">Porcentaje de Mùsculo</string>
+    <string name="visFat">Grasa Visceral</string>
+    <string name="Female">Femenino</string>
+    <string name="Male">Masculino</string>
+    <string name="elevated">Elevado</string>
+    <string name="less18">Menos de 18.5</string>
+    <string name="low">Bajo</string>
+    <string name="more18">18.5 o más y menos de 25</string>
+    <string name="more25">25 o más y menos de 30</string>
+    <string name="more30">30 o más</string>
+    <string name="normal">Normal</string>
+    <string name="obese">Obesidad</string>
+    <string name="overweight">Sobrepeso</string>
+    <string name="underweight">Peso inferior al normal</string>
+    <string name="veryElevated">Muy Elevado</string>
 </resources>

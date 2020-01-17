@@ -14,6 +14,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import com.fchw.noexcusas.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -34,6 +36,8 @@ private
     FirebaseUser user;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    private AdView mAdView;
+
 
 
     public HomeFragment2() {
@@ -50,12 +54,20 @@ private
         YouTubePlayerView youTubePlayerView2 = view.findViewById(R.id.youtube_player_view2);
         getLifecycle().addObserver(youTubePlayerView2);
 
+        YouTubePlayerView youTubePlayerView3 = view.findViewById(R.id.youtube_player_view3);
+        getLifecycle().addObserver(youTubePlayerView3);
+
         mStartDate = view.findViewById(R.id.startDateTV);
         mEndDate = view.findViewById(R.id.endDateTV);
         mPlan = view.findViewById(R.id.planTV);
         mDays = view.findViewById(R.id.daysTV);
         mMotivate = view.findViewById(R.id.motivationTV);
         mAnnounce = view.findViewById(R.id.announce);
+
+        //admob
+        mAdView = view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
 
         firebaseAuth = FirebaseAuth.getInstance();
