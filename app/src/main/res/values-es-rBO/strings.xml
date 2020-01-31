@@ -81,4 +81,14 @@
     <string name="overweight">Sobrepeso</string>
     <string name="underweight">Peso inferior al normal</string>
     <string name="veryElevated">Muy Elevado</string>
+    <string name="date">Fecha</string>
+    <string name="composition">Composición</string>
+    <string name="weight">Peso</string>
+    <string name="muscleper">Musculo</string>
+    <string name="metaage">Ed. Meta</string>
+    <string name="kcal">KCAL</string>
+    <string name="height">Talla</string>
+    <string name="bmi">IMC</string>
+    <string name="grasa">Grasa</string>
+    <string name="visfat">Vis Grasa</string>
 </resources>

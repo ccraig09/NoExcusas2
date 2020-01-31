@@ -87,11 +87,26 @@ And remember, it all starts with you. </string>
 
 
 
+
+    <string name="weight">Weight</string>
+    <string name="height">Height</string>
+    <string name="bmi">BMI</string>
+    <string name="grasa">Fat %</string>
+    <string name="muscleper">Muscle</string>
+    <string name="kcal">KCAL</string>
+    <string name="metaage">Meta Age</string>
+    <string name="visfat">Vis Fat</string>
+
+
+
     <!-- profile page body eval -->
     <string name="BMI">Body Mass Index</string>
     <string name="FatPercent">Body Fat</string>
     <string name="visFat">Visceral Fat</string>
     <string name="muscle">Muscle Percentage</string>
+
+    <string name="composition">Conposition</string>
+    <string name="date">Date</string>
 
     <string name="less18">Less than 18.5</string>
     <string name="underweight">Underweight</string>

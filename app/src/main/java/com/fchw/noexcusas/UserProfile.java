@@ -128,12 +128,12 @@ public UserProfile(){
                     String phone = ""+ds.child("celular").getValue();
                     String image = ""+ds.child("Profile Image").getValue();
                     //evalutation
-                    String pesa =  "Peso = "+ds.child("PESO").getValue();
-                    String talla = "Talla = "+ds.child("TALLA").getValue();
-                    String imc =   "IMC = "+ds.child("IMC").getValue();
-                    String grasa = "%Grasa = "+ds.child("%GRASA").getValue();
-                    String musculo = "%Músculo = "+ds.child("%MUSCULO").getValue();
-                    String kcal = "KCAL = "+ds.child("KCAL").getValue();
+                    String pesa =  ""+ds.child("PESO").getValue();
+                    String talla = ""+ds.child("TALLA").getValue();
+                    String imc =   "= "+ds.child("IMC").getValue();
+                    String grasa = ""+ds.child("%GRASA").getValue();
+                    String musculo = ""+ds.child("%MUSCULO").getValue();
+                    String kcal = ""+ds.child("KCAL").getValue();
 
 
 
