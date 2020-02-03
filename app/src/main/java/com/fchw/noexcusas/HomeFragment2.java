@@ -31,7 +31,7 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTube
 public class HomeFragment2 extends Fragment {
 
 private
-    TextView mStartDate, mEndDate, mPlan, mDays, mAnnounce, mMotivate;
+    TextView  mcheckin, mStartDate, mEndDate, mPlan, mDays, mAnnounce, mMotivate;
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
     FirebaseDatabase firebaseDatabase;
@@ -57,6 +57,9 @@ private
         YouTubePlayerView youTubePlayerView3 = view.findViewById(R.id.youtube_player_view3);
         getLifecycle().addObserver(youTubePlayerView3);
 
+
+        //member info
+        mcheckin = view.findViewById(R.id.checkintv);
         mStartDate = view.findViewById(R.id.startDateTV);
         mEndDate = view.findViewById(R.id.endDateTV);
         mPlan = view.findViewById(R.id.planTV);
@@ -82,6 +85,7 @@ private
                 //checkc until requiered data get
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
 
+                    String checkin = "Check ins = " + ds.child("Check ins").getValue();
                     String startdate = "Fecha de Inicio = " + ds.child("Start Date").getValue();
                     String enddate = "Fecha de Salida = " + ds.child("End Date").getValue();
                     String plan = "Plan " + ds.child("Plan").getValue();
@@ -90,6 +94,7 @@ private
                     String announce = "" +ds.child("Anuncios").getValue();
 
 
+                    mcheckin.setText(checkin);
                     mStartDate.setText(startdate);
                     mEndDate.setText(enddate);
                     mPlan.setText(plan);
