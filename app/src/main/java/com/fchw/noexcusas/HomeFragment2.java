@@ -26,12 +26,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
+import com.squareup.picasso.Picasso;
 
 
 public class HomeFragment2 extends Fragment {
 
 private
     TextView  mcheckin, mStartDate, mEndDate, mPlan, mDays, mAnnounce, mMotivate;
+    ImageView mAnnouncephoto, mAnnouncephoto2;
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
     FirebaseDatabase firebaseDatabase;
@@ -66,6 +68,8 @@ private
         mDays = view.findViewById(R.id.daysTV);
         mMotivate = view.findViewById(R.id.motivationTV);
         mAnnounce = view.findViewById(R.id.announce);
+        mAnnouncephoto = view.findViewById(R.id.announcephoto);
+        mAnnouncephoto2 = view.findViewById(R.id.announcephoto2);
 
         //admob
         mAdView = view.findViewById(R.id.adView);
@@ -92,6 +96,8 @@ private
                     String days = "Tu plan vence en " + ds.child("Days Left").getValue() + " días ";
                     String motiv = "" + ds.child("Motivacion").getValue();
                     String announce = "" +ds.child("Anuncios").getValue();
+                    String announcephoto = ""+ds.child("Anuncios photo").getValue();
+                    String announcephoto2 = ""+ds.child("Anuncios photo 2").getValue();
 
 
                     mcheckin.setText(checkin);
@@ -102,6 +108,25 @@ private
                     mMotivate.setText(motiv);
                     mAnnounce.setText(announce);
 
+                    try {
+                        // if image is received then set
+                        Picasso.get().load(announcephoto).into(mAnnouncephoto);
+                    }
+                    catch (Exception e){
+                        //if there is any exception while getting image then set default
+                        Picasso.get().load(R.drawable.ic_add_photo).into(mAnnouncephoto);
+
+                    }
+
+                    try {
+                        // if image is received then set
+                        Picasso.get().load(announcephoto2).into(mAnnouncephoto2);
+                    }
+                    catch (Exception e){
+                        //if there is any exception while getting image then set default
+                        Picasso.get().load(R.drawable.ic_add_photo).into(mAnnouncephoto2);
+
+                    }
 
                 }
             }
