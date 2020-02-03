@@ -50,7 +50,19 @@ public class UserProfile extends Fragment {
     ImageView avatarIv;
     TextView nameTv, emailTv, phoneTv, pesatv,
             tallatv, imctv, grasatv,
-            musculotv, kcaltv, grasavitv;
+            musculotv, kcaltv, grasavitv, metaagetv, evaltit2tv,
+            pesatv2,
+            tallatv2, imctv2, grasatv2,
+            musculotv2, kcaltv2, grasavitv2, metaagetv2,
+            pesatv3,
+            tallatv3, imctv3, grasatv3,
+            musculotv3, kcaltv, grasavitv, metaagetv,
+            pesatv,
+            tallatv, imctv, grasatv,
+            musculotv, kcaltv, grasavitv, metaagetv,
+            pesatv,
+            tallatv, imctv, grasatv,
+            musculotv, kcaltv, grasavitv, metaagetv;
 
 
 public UserProfile(){
@@ -87,8 +99,13 @@ public UserProfile(){
         grasatv =view.findViewById(R.id.grasaTV);
         musculotv =view.findViewById(R.id.musculoTV);
         kcaltv =view.findViewById(R.id.kcalTV);
+        metaagetv=view.findViewById(R.id.metaage);
         grasavitv =view.findViewById(R.id.grasaviTV);
 
+
+        //eval2
+
+        evaltit2tv=view.findViewById(R.id.evaltit2);
 
         Query query = databaseReference.orderByChild("email").equalTo(user.getEmail());
         query.addValueEventListener(new ValueEventListener() {
@@ -130,10 +147,12 @@ public UserProfile(){
                     //evalutation
                     String pesa =  ""+ds.child("PESO").getValue();
                     String talla = ""+ds.child("TALLA").getValue();
-                    String imc =   "= "+ds.child("IMC").getValue();
+                    String imc =   ""+ds.child("IMC").getValue();
                     String grasa = ""+ds.child("%GRASA").getValue();
                     String musculo = ""+ds.child("%MUSCULO").getValue();
                     String kcal = ""+ds.child("KCAL").getValue();
+                    String edadmeta = ""+ds.child("EDAD METABOL").getValue();
+                    String visgras = ""+ds.child("GRASA VICERAL").getValue();
 
 
 
@@ -147,6 +166,8 @@ public UserProfile(){
                     grasatv.setText(grasa);
                     musculotv.setText(musculo);
                     kcaltv.setText(kcal);
+                    metaagetv.setText(edadmeta);
+                    grasavitv.setText(visgras);
 
 
                     try {
