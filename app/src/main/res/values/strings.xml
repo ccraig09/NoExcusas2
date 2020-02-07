@@ -129,8 +129,18 @@ And remember, it all starts with you. </string>
 
 
 
-
-
+    <!-- edit profile image -->
+    <string name="editpropic">Edit Profile Picture</string>
+    <string name="chooseAction">Choose Action</string>
+    <string name="updatingPhoto">Updating Profile Picture</string>
+    <string name="cameraPermission"> Please enable camera and storage permission</string>
+    <string name="storagePermission"> Please enable storage permission</string>
+    <string name="choosefrom">Choose From</string>
+    <string name="camera">camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="imageUpdated">Image Updated...</string>
+    <string name="erroruploadimage"> Error Updating Image...</string>
+    <string name="photosettings"> Photo settings ></string>
 
 
 

@@ -14,7 +14,6 @@
         android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         ads:adSize="BANNER"
@@ -34,7 +33,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="150dp"
             android:orientation="horizontal"
             android:layout_marginTop="40dp">
 
@@ -42,9 +41,8 @@
                 android:id="@+id/avatarIv"
                 android:layout_width="120dp"
                 android:layout_height="130dp"
-                android:layout_marginStart="20dp"
-                android:padding="5dp"
-                android:src="@drawable/ic_add_photo"/>
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_default_img_white"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -57,7 +55,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:textColor="#ffffff"
-                android:layout_marginTop="5dp"
                 android:textSize="25sp"/>
 
                 <TextView
@@ -80,18 +77,34 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:textColor="#ffffff"/>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-                <Button
-                    android:id="@+id/button_refresh"
-                    android:layout_marginTop="15dp"
-                    android:textColor="@android:color/white"
-                    android:background="?colorPrimary"
-                    android:textAllCaps="false"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/refresh"
-                    android:layout_width="140dp"
-                    android:visibility="gone"
-                    android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_marginStart="20dp"
+                        android:id="@+id/tvfoto"
+                        android:layout_width="wrap_content"
+                        android:textSize="15sp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorWhite"
+                        android:text="@string/photosettings"/>
+
+
+
+                <!-- Floating Action Button -->
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_toEndOf="@+id/tvfoto"
+                    android:id="@+id/fab"
+                    android:layout_marginStart="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|bottom"
+                    android:src="@drawable/ic_edit_white"
+                    ads:backgroundTint="@color/lightgrey" />
+
+                </RelativeLayout>
+
 
 
 
@@ -355,22 +368,21 @@
             android:layout_height="wrap_content">
 
 
-
             <HorizontalScrollView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/compoTitle"
-                android:layout_width="100dp"
-                android:textSize="14sp"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="@string/composition"
-                android:fontFamily="serif"
-                android:textStyle="bold"
-                android:layout_marginStart="2dp"
-                android:textColor="@color/colorWhite"/>
+                <TextView
+                    android:id="@+id/compoTitle"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:fontFamily="serif"
+                    android:text="@string/composition"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
             </HorizontalScrollView>
 

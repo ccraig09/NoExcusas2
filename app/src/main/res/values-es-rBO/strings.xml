@@ -91,4 +91,15 @@
     <string name="bmi">IMC</string>
     <string name="grasa">Grasa</string>
     <string name="visfat">Vis Grasa</string>
+    <string name="editpropic">"Editar foto de perfíl "</string>
+    <string name="chooseAction">"Elige Acción "</string>
+    <string name="updatingPhoto">Actualizando foto de perfil</string>
+    <string name="cameraPermission">Por favor habilite el permiso de la cámara y almacenamiento</string>
+    <string name="storagePermission">Por favor habilite el permiso del almacenamiento</string>
+    <string name="choosefrom">"Escoge de "</string>
+    <string name="gallery">galería</string>
+    <string name="camera">cámara</string>
+    <string name="imageUpdated">Imagen actualizada...</string>
+    <string name="erroruploadimage">"Error al actualizar la imagen "</string>
+    <string name="photosettings">Ajustes de foto  ></string>
 </resources>
