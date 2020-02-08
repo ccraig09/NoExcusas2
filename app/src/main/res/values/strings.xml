@@ -146,6 +146,8 @@ And remember, it all starts with you. </string>
 
 
 
+    //reward ads
+    <string name="pointsbtn">Earn points by watching video    ⏯</string>
 
 
     <string name="menu_home" translatable="false">Home</string>
