@@ -65,7 +65,7 @@
     <string name="birthplace">"Lugar de Nacimiento "</string>
     <string name="body_composition">Información sobre la composición corporal</string>
     <string name="BMI">Índice de Masa Corporal</string>
-    <string name="FatPercent">Grasa Coporal</string>
+    <string name="FatPercent">Grasa Corporal</string>
     <string name="muscle">Porcentaje de Mùsculo</string>
     <string name="visFat">Grasa Visceral</string>
     <string name="Female">Femenino</string>

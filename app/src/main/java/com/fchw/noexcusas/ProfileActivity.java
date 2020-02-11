@@ -1,10 +1,15 @@
 package com.fchw.noexcusas;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -39,6 +44,9 @@ public class ProfileActivity extends AppCompatActivity implements RewardedVideoA
     private int pointCount;
 
 
+    //This is what will be used to recognize your number of points in the saved bundle.
+    //static final String POINTS = "pointCount";
+
     private TextView dateTimeDisplay;
     private Calendar calendar;
     private SimpleDateFormat dateFormat;
@@ -58,9 +66,11 @@ public class ProfileActivity extends AppCompatActivity implements RewardedVideoA
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
 
         TextView textView=findViewById(R.id.text_date_display);
-        SimpleDateFormat sdf = new SimpleDateFormat("🗓 dd.MM.yyyy '⌚️' HH:mm:");
+        SimpleDateFormat sdf = new SimpleDateFormat("🗓 dd/MM/yyyy '⌚️' HH:mm");
         String currentDateandTime = sdf.format(new Date());
         textView.setText(currentDateandTime);
 
@@ -79,15 +89,18 @@ public class ProfileActivity extends AppCompatActivity implements RewardedVideoA
 
 
         //rewards ads
-        MobileAds.initialize(getApplicationContext(), ("ca-app-pub-3940256099942544~3347511713"));
+        //ca-app-pub-9125010107042455/6647636731 actual
+        //ca-app-pub-3940256099942544~3347511713 for testing
+        MobileAds.initialize(getApplicationContext(), ("ca-app-pub-9125010107042455/6647636731"));
         // Use an activity context to get the rewarded video instance.
         mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
         mRewardedVideoAd.setRewardedVideoAdListener(this);
 
 
+
         //points count
         mText = findViewById(R.id.textView);
-        pointCount = 0;
+        pointCount = getPoints();
         mText.setText("Points: " + pointCount);
 
 
@@ -188,11 +201,49 @@ public class ProfileActivity extends AppCompatActivity implements RewardedVideoA
 
 
     }
+
+    private void savePoints(int totalPoints){
+        SharedPreferences prefs = getApplicationContext().getSharedPreferences(
+                "user_points", Context.MODE_PRIVATE);
+        // save points
+        prefs.edit().putInt("points", totalPoints).apply();
+    }
+
+    private int getPoints(){
+        SharedPreferences prefs = getApplicationContext().getSharedPreferences(
+                "user_points", Context.MODE_PRIVATE);
+        // retrieve points
+        // 0 is the default value if nothing was stored before
+        return prefs.getInt("points", 0);
+    }
+
+
+    //  retrieve point method
+   /* @Override
+    public void onSaveInstanceState(Bundle savedInstanceState){
+
+        //save points
+        savedInstanceState.putInt(POINTS, pointCount);
+        super.onSaveInstanceState(savedInstanceState);
+
+
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        // Restore your number of points and store them in your variable
+        pointCount = savedInstanceState.getInt(POINTS);
+    }*/
+
     private void loadRewardedVideoAd ()
     {
 
         if (!mRewardedVideoAd.isLoaded())
         {
+            //ca-app-pub-9125010107042455/6647636731 actual
+            //ca-app-pub-3940256099942544/5224354917 for testing
             mRewardedVideoAd.loadAd("ca-app-pub-3940256099942544/5224354917",new AdRequest.Builder().build());
         }
     }
@@ -230,13 +281,17 @@ public class ProfileActivity extends AppCompatActivity implements RewardedVideoA
 
     private void addPoints(int points) {
         pointCount +=  points;
+
+// save points to SharedPrefs
+        savePoints(pointCount);
+
         mText.setText("Points: " + pointCount);
     }
 
     @Override
     public void onRewarded(RewardItem rewardItem) {
 
-        Toast.makeText(ProfileActivity.this, "onUserEarnedReward", Toast.LENGTH_SHORT).show();
+        Toast.makeText(ProfileActivity.this, "🔥 Points 🔥", Toast.LENGTH_SHORT).show();
         addPoints(rewardItem.getAmount());
 
     }
@@ -261,6 +316,7 @@ public class ProfileActivity extends AppCompatActivity implements RewardedVideoA
     protected void onResume() {
         mRewardedVideoAd.resume(this);
         super.onResume();
+
     }
 
     @Override
